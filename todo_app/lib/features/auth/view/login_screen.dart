@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/core/components/custom_button.dart';
 import 'package:todo_app/core/components/custom_text_field.dart';
 import 'package:todo_app/core/components/social_button.dart';
+import 'package:todo_app/features/auth/cubit/cubit/auth_cubit.dart';
+import 'package:todo_app/features/auth/cubit/cubit/auth_state.dart';
+import 'package:todo_app/features/auth/view/forgot_password_screen.dart';
 import 'package:todo_app/features/auth/view/register_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_app/features/home/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -30,11 +35,39 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              SocialButton(
-                imagePath: "assets/google.png",
-                buttonName: "Continue with Google",
-                size: 25,
-                onTap: () {},
+              BlocConsumer<AuthCubit, AuthState>(
+                listener: (context, state) {
+                  if (state is UserAuthorized) {
+                    //ToDo|> Do Routing.........................................
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const HomeScreen(),
+                      ),
+                    );
+                  }
+                  //ToDo|> General SnackBar.........................................
+                  if (state is UserError) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        backgroundColor: Colors.white,
+                        content: Text(state.errorMsg),
+                      ),
+                    );
+                  }
+                },
+                builder: (context, state) {
+                  return state is UserLoading
+                      ? const CircularProgressIndicator()
+                      : SocialButton(
+                          imagePath: "assets/google.png",
+                          buttonName: "Continue with Google",
+                          size: 25,
+                          onTap: () async {
+                            await context.read<AuthCubit>().loginWithGoogle();
+                          },
+                        );
+                },
               ),
               const SizedBox(
                 height: 15,
@@ -62,7 +95,41 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              CustomButton(onTap: () {}, title: "Sign In"),
+              BlocConsumer<AuthCubit, AuthState>(
+                listener: (context, state) {
+                  if (state is UserAuthorized) {
+                    //ToDo|> Do Routing.........................................
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const HomeScreen(),
+                      ),
+                    );
+                  }
+                  //ToDo|> General SnackBar.........................................
+                  if (state is UserError) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        backgroundColor: Colors.white,
+                        content: Text(state.errorMsg),
+                      ),
+                    );
+                  }
+                },
+                builder: (context, state) {
+                  return state is UserLoading
+                      ? const CircularProgressIndicator()
+                      : CustomButton(
+                          onTap: () async {
+                            await context.read<AuthCubit>().login(
+                                  emailController.text,
+                                  pwdController.text,
+                                );
+                          },
+                          title: "Sign In",
+                        );
+                },
+              ),
               const SizedBox(
                 height: 20,
               ),
@@ -78,6 +145,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
+                      //ToDo: change Route
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -100,7 +168,15 @@ class LoginScreen extends StatelessWidget {
                 height: 10,
               ),
               GestureDetector(
-                onTap: (){},
+                onTap: () {
+                  //ToDo: change Route
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const ForgotPasswordScreen(),
+                    ),
+                  );
+                },
                 child: const Text(
                   "Forgot Password?",
                   style: TextStyle(
