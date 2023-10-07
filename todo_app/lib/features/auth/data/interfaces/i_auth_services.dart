@@ -4,8 +4,8 @@ abstract class IAuthServices {
   const IAuthServices();
 
   Future<UserModel> login(String email, String password);
-  Future<UserModel> register(String email, String password);
   Future<UserModel> loginWithGoogle();
+  Future<UserModel> register(String email, String password);
   Future<bool> signOut();
-  // Future<> forgetPassword();
+  Future<bool> forgetPassword(String email);
 }
