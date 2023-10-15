@@ -5,12 +5,13 @@ class CustomTextField extends StatelessWidget {
   final String label;
   final TextEditingController controller;
   bool isPassword;
-
+final int maxLines ;
   CustomTextField({
     super.key,
     required this.controller,
     required this.label,
     this.isPassword = false,
+    this.maxLines = 1,
   });
 
   @override
@@ -19,6 +20,7 @@ class CustomTextField extends StatelessWidget {
       width: MediaQuery.of(context).size.width - 70,
       height: 55,
       child: TextFormField(
+        maxLines:maxLines ,
         controller: controller,
         obscureText: isPassword,
         style: const TextStyle(

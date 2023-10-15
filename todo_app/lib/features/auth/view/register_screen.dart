@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_app/core/components/custom_button.dart';
@@ -48,15 +50,26 @@ class RegisterScreen extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              CustomButton(onTap: () {}, title: "Register"),
               BlocConsumer<AuthCubit, AuthState>(
                 listener: (context, state) {
                   if (state is UserAuthorized) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        backgroundColor: Colors.green,
+                        content: Text(
+                          "Successfully!",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    );
                     //ToDo|> Do Routing.........................................
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const LoginScreen(),
+                    Timer(
+                      const Duration(seconds: 5),
+                      () => Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const LoginScreen(),
+                        ),
                       ),
                     );
                   }
@@ -64,8 +77,11 @@ class RegisterScreen extends StatelessWidget {
                   if (state is UserError) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        backgroundColor: Colors.white,
-                        content: Text(state.errorMsg),
+                        backgroundColor: Colors.red,
+                        content: Text(
+                          state.errorMsg,
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     );
                   }
@@ -75,7 +91,7 @@ class RegisterScreen extends StatelessWidget {
                       ? const CircularProgressIndicator()
                       : CustomButton(
                           onTap: () async {
-                            await context.read<AuthCubit>().login(
+                            await context.read<AuthCubit>().register(
                                   emailController.text,
                                   pwdController.text,
                                 );

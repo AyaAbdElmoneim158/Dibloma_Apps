@@ -7,7 +7,7 @@ import 'package:todo_app/features/auth/cubit/cubit/auth_state.dart';
 import 'package:todo_app/features/auth/view/forgot_password_screen.dart';
 import 'package:todo_app/features/auth/view/register_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_app/features/home/home_screen.dart';
+import 'package:todo_app/features/home/view/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
