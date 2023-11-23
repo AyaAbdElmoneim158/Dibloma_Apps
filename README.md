@@ -11,3 +11,4 @@
     - Add Categories Screen
     - Add Search Screen
     - Add Wish Screen
+    - Add Profile Screen

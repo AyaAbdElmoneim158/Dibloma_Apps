@@ -5,6 +5,7 @@ import 'package:todo_app/core/utils/app_colors.dart';
 import 'package:todo_app/core/utils/styles.dart';
 import 'package:todo_app/features/category/category_screen.dart';
 import 'package:todo_app/features/home/home_screen.dart';
+import 'package:todo_app/features/profile/profile_screen.dart';
 import 'package:todo_app/features/search/search_screen.dart';
 import 'package:todo_app/features/wish/wish_screen.dart';
 
@@ -16,17 +17,13 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int currentIndex = 3;
-  List<Widget> screens = [
-    const HomeScreen(),
-    const CategoryScreen(),
-    const SearchScreen(),
-    const WishScreen(),
-    Center(
-        child: Text(
-      "Profile",
-      style: Styles.getHeaderDescriptionTextStyle(AppColors.primaryColor),
-    )),
+  int currentIndex = 4;
+  List<Widget> screens = const [
+    HomeScreen(),
+    CategoryScreen(),
+    SearchScreen(),
+    WishScreen(),
+    ProfileScreen()
   ];
 
   @override

@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/model/category_model.dart';
-import 'package:todo_app/core/model/product_model.dart';
-import 'package:todo_app/core/shareable_components/common_category_card.dart';
-import 'package:todo_app/core/shareable_components/common_product_v_card.dart';
 import 'package:todo_app/core/utils/app_strings.dart';
 import 'package:todo_app/core/utils/helper.dart';
 import 'package:todo_app/features/home/widgets/best_selling_list.dart';

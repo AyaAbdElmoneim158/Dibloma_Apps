@@ -22,7 +22,8 @@ class CommonProfileCard extends StatelessWidget {
             child: ListTile(
               trailing: Icon(
                 Icons.arrow_forward_ios,
-                color: AppColors.fontColor.withOpacity(0.7),
+                color: AppColors.fontColor.withOpacity(0.6),
+                size: 18,
               ),
               title: Text(
                 model.name,
