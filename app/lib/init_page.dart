@@ -7,9 +7,15 @@ class InitPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(
-          "Store App",
-          style: Theme.of(context).textTheme.headlineMedium,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Store App",
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            Image.asset('assets/images/Woman Shopping.gif')
+          ],
         ),
       ),
     );

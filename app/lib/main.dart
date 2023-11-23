@@ -8,13 +8,13 @@ void main() {
 
 class StoreApp extends StatelessWidget {
   const StoreApp({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Store App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(),
+      theme: ThemeData(fontFamily: 'Work_Sans'),
       onGenerateRoute: onGenerateRoute,
       initialRoute: Routes.initialRoute,
     );
