@@ -3,6 +3,7 @@ import 'package:todo_app/core/router/routes.dart';
 import 'package:todo_app/features/auth/screens/login_screen.dart';
 import 'package:todo_app/features/auth/screens/register_screen.dart';
 import 'package:todo_app/features/auth/screens/verification_screen.dart';
+import 'package:todo_app/features/home/main_screen.dart';
 import 'package:todo_app/features/splash/splash_screen.dart';
 
 Route? onGenerateRoute(RouteSettings routeSettings) {
@@ -29,6 +30,12 @@ Route? onGenerateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         builder: ((context) {
           return const VerificationScreen();
+        }),
+      );
+    case Routes.mainRoute:
+      return MaterialPageRoute(
+        builder: ((context) {
+          return const MainScreen();
         }),
       );
     default:

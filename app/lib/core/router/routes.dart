@@ -5,4 +5,6 @@ class Routes {
   static const String loginRoute = '/login';
   static const String registerRoute = '/register';
   static const String verificationRoute = '/verification';
+
+  static const String mainRoute = '/main';
 }
