@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:todo_app/core/utils/app_colors.dart';
-
+import 'package:todo_app/core/utils/app_strings.dart';
 
 class Styles {
   final BuildContext context;
   Styles(this.context);
+
+  static TextStyle titleAppStyle = const TextStyle(
+    fontFamily: AppStrings.fontFamily2,
+    fontSize: 24,
+    color: AppColors.fontColor,
+  );
 
   static TextStyle getSplashTextStyle() => GoogleFonts.courgette(
         color: AppColors.primaryColor,
