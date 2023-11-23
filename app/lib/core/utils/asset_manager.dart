@@ -2,7 +2,7 @@ const String imgPath = 'assets/images';
 
 class ImageAssets {
   static const String googleIcon = '$imgPath/google.svg';
-  static const String facebookIcon = '$imgPath/facebook.svg';
+  static const String facebookIcon = 'assets/images/facebook.svg';
 
   static const String shoppingImage = '$imgPath/Woman Shopping.gif';
   static const String product1Image = '$imgPath/laptop.jpg';
@@ -12,6 +12,4 @@ class ImageAssets {
   static const String product5Image = '$imgPath/screen.jpg';
   static const String product6Image = '$imgPath/smartphone.jpg';
   static const String product7Image = '$imgPath/tablet.jpg';
-
-
 }

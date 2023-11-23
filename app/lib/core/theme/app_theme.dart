@@ -14,22 +14,23 @@ class MyThemes {
     fontFamily: AppStrings.fontFamily,
     appBarTheme: AppBarTheme(
       color: AppColors.whiteColor,
-      titleTextStyle: Styles.titleAppStyle,
+      titleTextStyle: Styles.getTitleAppStyle,
       centerTitle: true,
       elevation: 0,
     ),
     scaffoldBackgroundColor: AppColors.whiteColor,
-    
   );
 
   static final ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     primaryColor: AppColors.primaryColor,
     highlightColor: Colors.white,
-    appBarTheme:  AppBarTheme(color: AppColors.fontColor,
-     titleTextStyle: Styles.titleAppStyle,
+    appBarTheme: AppBarTheme(
+      color: AppColors.fontColor,
+      titleTextStyle: Styles.getTitleAppStyle,
       centerTitle: true,
-      elevation: 0,),
+      elevation: 0,
+    ),
     scaffoldBackgroundColor: AppColors.fontColor,
   );
 
