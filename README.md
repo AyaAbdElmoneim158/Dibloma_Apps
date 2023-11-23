@@ -12,3 +12,4 @@
     - Add Search Screen
     - Add Wish Screen
     - Add Profile Screen
+    - Add Details Screen

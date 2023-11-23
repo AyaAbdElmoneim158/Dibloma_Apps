@@ -20,94 +20,97 @@ class LoginForm extends StatelessWidget {
     final formKey = GlobalKey<FormState>();
 
     return Form(
+        key: formKey,
         child: Column(
-      children: [
-        CommonField(
-          headerField: AppStrings.emailAddress,
-          hintText: AppStrings.email,
-          keyboardType: TextInputType.emailAddress,
-          controller: emailController,
-          validator: (val) {
-            if (val!.isEmpty) {
-              debugPrint("Email is required");
-            }
-            return null;
-          },
-        ),
-        Helper.hSizeBox(12),
-        CommonField(
-          headerField: AppStrings.password,
-          hintText: AppStrings.password,
-          controller: passwordController,
-          obscureText: true,
-          validator: (val) {
-            if (val!.isEmpty) {
-              debugPrint("Password is required");
-            }
-            return null;
-          },
-        ),
-        Helper.hSizeBox(32),
-        CommonButton(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          buttonText: "Login",
-          radius: 4,
-          onTap: () {
-            if (formKey.currentState!.validate()) {
-              debugPrint("Login onTap: ${emailController.text}");
-            } else {
-              debugPrint("not valid");
-            }
-          },
-        ),
-        Helper.hSizeBox(32),
-        ListTile(
-          title: Text(
-            "Remember me",
-            style: Styles.getCheckTextStyle(),
-          ),
-          trailing: TextButton(
-              child: Text(
-                "Forgot  password",
+          children: [
+            CommonField(
+              headerField: AppStrings.emailAddress,
+              hintText: AppStrings.email,
+              keyboardType: TextInputType.emailAddress,
+              controller: emailController,
+              validator: (val) {
+                if (val!.isEmpty) {
+                  debugPrint("Email is required");
+                }
+                return null;
+              },
+            ),
+            Helper.hSizeBox(12),
+            CommonField(
+              headerField: AppStrings.password,
+              hintText: AppStrings.password,
+              controller: passwordController,
+              obscureText: true,
+              validator: (val) {
+                if (val!.isEmpty) {
+                  debugPrint("Password is required");
+                }
+                return null;
+              },
+            ),
+            Helper.hSizeBox(32),
+            CommonButton(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              buttonText: "Login",
+              radius: 4,
+              onTap: () {
+                if (formKey.currentState!.validate()) {
+                  Navigator.pushNamed(context, Routes.mainRoute);
+                  debugPrint(
+                      'Login: Email${emailController.text} || password${passwordController.text}');
+                } else {
+                  debugPrint("not valid");
+                }
+              },
+            ),
+            Helper.hSizeBox(32),
+            ListTile(
+              title: Text(
+                "Remember me",
                 style: Styles.getCheckTextStyle(),
               ),
-              onPressed: () {}),
-          leading: Checkbox(value: false, onChanged: (val) {}),
-        ),
-        Helper.hSizeBox(32),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CommonCircleAvatar(
-              radius: 22,
-              avatar: SvgPicture.asset(ImageAssets.googleIcon),
+              trailing: TextButton(
+                  child: Text(
+                    "Forgot  password",
+                    style: Styles.getCheckTextStyle(),
+                  ),
+                  onPressed: () {}),
+              leading: Checkbox(value: false, onChanged: (val) {}),
             ),
-            Helper.wSizeBox(32),
-            CommonCircleAvatar(
-              // radius: 22,
-              avatar: SvgPicture.asset(ImageAssets.facebookIcon),
+            Helper.hSizeBox(32),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CommonCircleAvatar(
+                  radius: 22,
+                  avatar: SvgPicture.asset(ImageAssets.googleIcon),
+                ),
+                Helper.wSizeBox(32),
+                CommonCircleAvatar(
+                  // radius: 22,
+                  avatar: SvgPicture.asset(ImageAssets.facebookIcon),
+                ),
+              ],
             ),
+            Helper.hSizeBox(18),
+            GestureDetector(
+              onTap: () => Navigator.pushNamed(context, Routes.registerRoute),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    AppStrings.notHaveAccount,
+                    style: Styles.getHeaderDescriptionTextStyle(),
+                  ),
+                  Text(
+                    AppStrings.signUp,
+                    style: Styles.getHeaderDescriptionTextStyle(
+                        AppColors.primaryColor),
+                  ),
+                ],
+              ),
+            )
           ],
-        ),
-        Helper.hSizeBox(18),
-        GestureDetector(
-          onTap: () => Navigator.pushNamed(context, Routes.registerRoute),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                AppStrings.notHaveAccount,
-                style: Styles.getHeaderDescriptionTextStyle(),
-              ),
-              Text(
-                AppStrings.signUp,
-                style: Styles.getHeaderDescriptionTextStyle(
-                    AppColors.primaryColor),
-              ),
-            ],
-          ),
-        )
-      ],
-    ));
+        ));
   }
 }

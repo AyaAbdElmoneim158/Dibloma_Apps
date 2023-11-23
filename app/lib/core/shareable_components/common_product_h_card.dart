@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/core/model/product_model.dart';
+import 'package:todo_app/core/router/routes.dart';
 import 'package:todo_app/core/utils/app_colors.dart';
 import 'package:todo_app/core/utils/helper.dart';
 import 'package:todo_app/core/utils/styles.dart';
@@ -11,7 +12,10 @@ class CommonProductHCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(context, Routes.detailsProductRoute);
+          debugPrint('CommonProductHCard');
+        },
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(18),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/core/theme/app_theme.dart';
 import 'package:todo_app/core/utils/app_strings.dart';
-import 'package:todo_app/features/main_screen.dart';
+import 'package:todo_app/core/router/router.dart';
+import 'package:todo_app/core/router/routes.dart';
 
 void main() {
   runApp(const StoreApp());
@@ -17,9 +18,9 @@ class StoreApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: MyThemes.lightTheme,
       themeMode: ThemeMode.light,
-      // onGenerateRoute: onGenerateRoute,
-      // initialRoute: Routes.mainRoute,
-      home: const MainScreen(),
+      onGenerateRoute: onGenerateRoute,
+      initialRoute: Routes.initialRoute,
+      // home: const MainScreen(),
     );
   }
 }

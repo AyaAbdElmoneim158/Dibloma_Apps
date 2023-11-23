@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/core/model/product_model.dart';
 import 'package:todo_app/core/router/routes.dart';
 import 'package:todo_app/features/auth/screens/login_screen.dart';
 import 'package:todo_app/features/auth/screens/register_screen.dart';
 import 'package:todo_app/features/auth/screens/verification_screen.dart';
+import 'package:todo_app/features/home/details_screen.dart';
 import 'package:todo_app/features/main_screen.dart';
 import 'package:todo_app/features/splash/splash_screen.dart';
 
@@ -36,6 +38,14 @@ Route? onGenerateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         builder: ((context) {
           return const MainScreen();
+        }),
+      );
+    case Routes.detailsProductRoute:
+      return MaterialPageRoute(
+        builder: ((context) {
+          return DetailsScreen(
+            product: products[1],
+          );
         }),
       );
     default:

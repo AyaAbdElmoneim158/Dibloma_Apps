@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/core/router/routes.dart';
 import 'package:todo_app/core/shareable_components/common_button.dart';
 import 'package:todo_app/core/shareable_components/common_field.dart';
 import 'package:todo_app/core/utils/app_colors.dart';
@@ -63,6 +64,9 @@ class RegisterForm extends StatelessWidget {
           onTap: () {
             if (formKey.currentState!.validate()) {
               debugPrint("SignUp onTap: ${emailController.text}");
+              Navigator.pushNamed(context, Routes.mainRoute);
+              debugPrint(
+                  'Login: Name${nameController.text} || Email${emailController.text} || password${passwordController.text}');
             } else {
               debugPrint("not valid");
             }
