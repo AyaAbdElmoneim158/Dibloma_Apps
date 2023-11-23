@@ -17,9 +17,9 @@ class StoreApp extends StatelessWidget {
       title: AppStrings.appName,
       debugShowCheckedModeBanner: false,
       theme: MyThemes.lightTheme,
-      themeMode:ThemeMode.light ,
+      themeMode: ThemeMode.light,
       onGenerateRoute: onGenerateRoute,
-      initialRoute: Routes.initialRoute,
+      initialRoute: Routes.verificationRoute,
     );
   }
 }

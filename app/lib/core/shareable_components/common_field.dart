@@ -14,6 +14,7 @@ class CommonField extends StatelessWidget {
     this.validator,
     this.prefixIcon,
     this.radius = 24,
+    this.textAlign = TextAlign.start,
   });
 
   final String? hintText;
@@ -24,6 +25,7 @@ class CommonField extends StatelessWidget {
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final double radius;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +54,7 @@ class CommonField extends StatelessWidget {
             obscuringCharacter: "*",
             cursorWidth: 1.3,
             decoration: Styles.getFieldDecoration(hintText!, prefixIcon),
-            textAlign: TextAlign.start,
+            textAlign: textAlign,
           ),
         ),
       ],

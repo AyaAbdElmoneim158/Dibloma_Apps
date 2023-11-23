@@ -21,7 +21,7 @@ class CommonCircleAvatar extends StatelessWidget {
         shape: shape,
         boxShadow: Styles.getBoxShadowStyle(),
         color: AppColors.whiteColor,
-        borderRadius: BorderRadius.circular(radius!),
+        // borderRadius: BorderRadius.circular(radius!),
       ),
       // shape: shape,
       child: CircleAvatar(

@@ -25,12 +25,15 @@ class Styles {
         color: AppColors.grayFontColor.withOpacity(0.3),
         borderRadius: BorderRadius.circular(12),
       );
-//! ----------------------------------------------------------------------------
-  static TextStyle getSplashTextStyle() => GoogleFonts.courgette(
+
+  static TextStyle getSplashTextStyle() => const TextStyle(
         color: AppColors.primaryColor,
         fontSize: 32,
         fontWeight: FontWeight.bold,
+        fontFamily: AppStrings.fontFamily2,
       );
+//! ----------------------------------------------------------------------------
+
   static TextStyle getButtonTextStyle() => GoogleFonts.rubik(
         color: AppColors.whiteColor,
         fontSize: 22,
@@ -38,16 +41,23 @@ class Styles {
       );
   static TextStyle getHeaderTextStyle() => GoogleFonts.rubik(
         color: AppColors.fontColor,
-        fontSize: 22,
+        fontSize: 32,
         fontWeight: FontWeight.w600,
       );
-  static TextStyle getHeaderDescriptionTextStyle() => GoogleFonts.rubik(
-        color: AppColors.fontColor,
+  static TextStyle getHeaderDescriptionTextStyle(
+          [Color color = AppColors.fontColor]) =>
+      TextStyle(
+        color: color,
         fontSize: 20,
         fontWeight: FontWeight.w500,
       );
 
   static TextStyle getHintTextStyle() => GoogleFonts.rubik(
+        color: AppColors.fontColor.withOpacity(0.8),
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+      );
+  static TextStyle getCheckTextStyle() => GoogleFonts.rubik(
         color: AppColors.fontColor.withOpacity(0.8),
         fontSize: 16,
         fontWeight: FontWeight.w500,
