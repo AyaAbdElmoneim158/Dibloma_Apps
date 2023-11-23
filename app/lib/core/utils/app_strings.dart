@@ -25,4 +25,9 @@ class AppStrings {
   static const String otpCodeSend =
       "Please enter the OTP code sent to you by SMS";
   static const String notGetCode = "Didn't get the code?";
+
+  static const String featuredProducts = "Featured Products";
+  static const String specialForYou = "Special for you";
+  static const String featuredProduct = "Featured Product";
+  static const String bestSellingProduct = "Best Selling Product";
 }

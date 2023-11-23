@@ -10,6 +10,24 @@ class Helper {
         style: Styles.getHeaderTextStyle(),
       );
 
+  static Row showHeaderWithSeeMore({
+    required String header,
+  }) =>
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            header,
+            style: Styles.getHeaderTextStyle(28),
+          ),
+          Text(
+            'See More',
+            style: Styles.getHeaderFieldTextStyle(22),
+          ),
+        ],
+      );
+
   static Text showHeaderDescription({
     required String headerDescription,
   }) =>

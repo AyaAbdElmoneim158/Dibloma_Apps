@@ -39,11 +39,12 @@ class Styles {
         fontSize: 22,
         fontWeight: FontWeight.w300,
       );
-  static TextStyle getHeaderTextStyle() => GoogleFonts.rubik(
+  static TextStyle getHeaderTextStyle([double? fontSize = 32]) => TextStyle(
         color: AppColors.fontColor,
-        fontSize: 32,
+        fontSize: fontSize,
         fontWeight: FontWeight.w600,
       );
+
   static TextStyle getHeaderDescriptionTextStyle(
           [Color color = AppColors.fontColor]) =>
       TextStyle(
@@ -63,9 +64,10 @@ class Styles {
         fontWeight: FontWeight.w500,
       );
 
-  static TextStyle getHeaderFieldTextStyle() => GoogleFonts.rubik(
+  static TextStyle getHeaderFieldTextStyle([double? fontSize = 13]) =>
+      GoogleFonts.rubik(
         color: AppColors.grayFontColor,
-        fontSize: 13,
+        fontSize: fontSize,
         fontWeight: FontWeight.w500,
       );
   static InputDecoration? getFieldDecoration([
