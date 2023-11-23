@@ -9,3 +9,4 @@
     - Add main Screen with Navbar
     - Add Home Screen
     - Add Categories Screen
+    - Add Search Screen

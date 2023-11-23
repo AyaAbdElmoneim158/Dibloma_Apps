@@ -5,6 +5,7 @@ import 'package:todo_app/core/utils/app_colors.dart';
 import 'package:todo_app/core/utils/styles.dart';
 import 'package:todo_app/features/category/category_screen.dart';
 import 'package:todo_app/features/home/home_screen.dart';
+import 'package:todo_app/features/search/search_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -14,15 +15,11 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int currentIndex = 1;
+  int currentIndex = 2;
   List<Widget> screens = [
     const HomeScreen(),
     const CategoryScreen(),
-    Center(
-        child: Text(
-      "Search",
-      style: Styles.getHeaderDescriptionTextStyle(AppColors.primaryColor),
-    )),
+    const SearchScreen(),
     Center(
         child: Text(
       "WishList",
