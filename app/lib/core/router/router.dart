@@ -3,7 +3,7 @@ import 'package:todo_app/core/router/routes.dart';
 import 'package:todo_app/features/auth/screens/login_screen.dart';
 import 'package:todo_app/features/auth/screens/register_screen.dart';
 import 'package:todo_app/features/auth/screens/verification_screen.dart';
-import 'package:todo_app/features/home/main_screen.dart';
+import 'package:todo_app/features/main_screen.dart';
 import 'package:todo_app/features/splash/splash_screen.dart';
 
 Route? onGenerateRoute(RouteSettings routeSettings) {

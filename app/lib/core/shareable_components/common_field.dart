@@ -40,7 +40,7 @@ class CommonField extends StatelessWidget {
           ),
         Helper.hSizeBox(12),
         Container(
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.all(4),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(radius),
             boxShadow: Styles.getBoxShadowStyle(),

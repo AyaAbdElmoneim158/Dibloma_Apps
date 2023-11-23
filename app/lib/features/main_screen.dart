@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:todo_app/core/utils/app_colors.dart';
 import 'package:todo_app/core/utils/styles.dart';
+import 'package:todo_app/features/category/category_screen.dart';
 import 'package:todo_app/features/home/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -13,14 +14,10 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int currentIndex = 0;
+  int currentIndex = 1;
   List<Widget> screens = [
     const HomeScreen(),
-    Center(
-        child: Text(
-      "Categories",
-      style: Styles.getHeaderDescriptionTextStyle(AppColors.primaryColor),
-    )),
+    const CategoryScreen(),
     Center(
         child: Text(
       "Search",

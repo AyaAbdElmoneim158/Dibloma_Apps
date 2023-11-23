@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:todo_app/core/model/category_model.dart';
 import 'package:todo_app/core/model/product_model.dart';
 import 'package:todo_app/core/shareable_components/common_category_card.dart';
-import 'package:todo_app/core/shareable_components/common_circle_avatar.dart';
-import 'package:todo_app/core/shareable_components/common_field.dart';
 import 'package:todo_app/core/shareable_components/common_product_v_card.dart';
-import 'package:todo_app/core/utils/app_colors.dart';
 import 'package:todo_app/core/utils/app_strings.dart';
 import 'package:todo_app/core/utils/helper.dart';
+import 'package:todo_app/features/home/widgets/best_selling_list.dart';
+import 'package:todo_app/features/home/widgets/feature_list.dart';
+import 'package:todo_app/features/home/widgets/search_header.dart';
+import 'package:todo_app/features/home/widgets/special_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -28,90 +28,22 @@ class HomeScreen extends StatelessWidget {
                 Helper.hSizeBox(32),
                 Helper.showHeaderWithSeeMore(header: AppStrings.specialForYou),
                 Helper.hSizeBox(18),
-                SizedBox(
-                  height: 150,
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    separatorBuilder: (context, index) => Helper.wSizeBox(8),
-                    itemCount: categories.length,
-                    itemBuilder: (context, index) =>
-                        CommonCategoryCard(category: categories[index]),
-                  ),
-                ),
+                const SpecialList(),
                 Helper.hSizeBox(18),
-                Helper.showHeaderWithSeeMore(header: AppStrings.specialForYou),
+                Helper.showHeaderWithSeeMore(
+                    header: AppStrings.featuredProduct),
                 Helper.hSizeBox(18),
-                SizedBox(
-                  height: 250,
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    separatorBuilder: (context, index) => Helper.wSizeBox(8),
-                    itemCount: products.length,
-                    itemBuilder: (context, index) => CommonProductVCard(
-                      product: products[index],
-                    ),
-                  ),
-                ),
+                const FeaturedList(),
                 Helper.hSizeBox(18),
                 Helper.showHeaderWithSeeMore(
                     header: AppStrings.bestSellingProduct),
                 Helper.hSizeBox(18),
-                SizedBox(
-                  height: 250,
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    separatorBuilder: (context, index) => Helper.wSizeBox(8),
-                    itemCount: products.length,
-                    itemBuilder: (context, index) => CommonProductVCard(
-                      product: products[index],
-                    ),
-                  ),
-                ),
+                const BestSellingList(),
               ],
             ),
           ),
         ),
       ),
-    );
-  }
-}
-
-class SearchHeader extends StatelessWidget {
-  const SearchHeader({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Expanded(
-          child: CommonField(
-            hintText: 'Search Product',
-            // headerField: ,
-            validator: (val) {
-              return null;
-            },
-            prefixIcon:
-                const Icon(IconlyLight.search, color: AppColors.primaryColor),
-          ),
-        ),
-        Helper.wSizeBox(8),
-        const CommonCircleAvatar(
-            radius: 32,
-            avatar: Icon(
-              Icons.shopping_cart_outlined,
-              color: AppColors.primaryColor,
-            )),
-        Helper.wSizeBox(8),
-        const CommonCircleAvatar(
-            radius: 32,
-            avatar: Icon(
-              IconlyBroken.notification,
-              color: AppColors.primaryColor,
-            )),
-      ],
     );
   }
 }

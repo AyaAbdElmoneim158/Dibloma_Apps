@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/core/theme/app_theme.dart';
 import 'package:todo_app/core/utils/app_strings.dart';
-import 'package:todo_app/features/home/main_screen.dart';
+import 'package:todo_app/features/main_screen.dart';
 
 void main() {
   runApp(const StoreApp());
