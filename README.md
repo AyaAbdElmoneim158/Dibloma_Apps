@@ -10,3 +10,4 @@
     - Add Home Screen
     - Add Categories Screen
     - Add Search Screen
+    - Add Wish Screen
