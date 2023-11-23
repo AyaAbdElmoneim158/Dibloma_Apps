@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/core/router/router.dart';
+import 'package:todo_app/core/router/routes.dart';
 
 void main() {
   runApp(const StoreApp());
@@ -6,20 +8,15 @@ void main() {
 
 class StoreApp extends StatelessWidget {
   const StoreApp({super.key});
-
-  // This widget is the root of your application.
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'ToDo App',
+      title: 'Store App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const Scaffold(
-        body: Center(child: Text("Store App")),
-      ),
+      theme: ThemeData(),
+      onGenerateRoute: onGenerateRoute,
+      initialRoute: Routes.initialRoute,
     );
   }
 }
