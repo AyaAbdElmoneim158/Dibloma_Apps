@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/core/utils/app_colors.dart';
+import 'package:todo_app/core/utils/consts.dart';
 import 'package:todo_app/core/utils/styles.dart';
 
 class CommonButton extends StatelessWidget {
@@ -19,7 +20,7 @@ class CommonButton extends StatelessWidget {
     this.backgroundColor,
     this.padding,
     this.isClickable = true,
-    this.radius = 8,
+    this.radius = AppConst.globalRadius,
   }) : super(key: key);
 
   @override

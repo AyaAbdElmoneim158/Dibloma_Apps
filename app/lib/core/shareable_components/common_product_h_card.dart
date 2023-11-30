@@ -1,80 +1,115 @@
+import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app/core/model/product_model.dart';
 import 'package:todo_app/core/router/routes.dart';
+import 'package:todo_app/core/shareable_components/common_card.dart';
 import 'package:todo_app/core/utils/app_colors.dart';
+import 'package:todo_app/core/utils/consts.dart';
 import 'package:todo_app/core/utils/helper.dart';
-import 'package:todo_app/core/utils/styles.dart';
 
 class CommonProductHCard extends StatelessWidget {
-  const CommonProductHCard({super.key, required this.product});
+  const CommonProductHCard({
+    super.key,
+    required this.product,
+    this.isCartCard = false,
+  });
   final ProductModel product;
+  final bool isCartCard;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () {
-          Navigator.pushNamed(context, Routes.detailsProductRoute);
-          debugPrint('CommonProductHCard');
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(18),
-            color: AppColors.whiteColor,
-            boxShadow: Styles.getBoxShadowStyle(),
-          ),
-          child: Row(
-            children: [
-              ClipRRect(
+      onTap: () => Navigator.pushNamed(context, Routes.detailsProductRoute,
+          arguments: product.productId),
+      child: CommonCard(
+        padding: 0,
+        child: Row(
+          children: [
+            Expanded(
+              flex: 3,
+              child: ClipRRect(
                 borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(12),
-                  bottomLeft: Radius.circular(12),
+                  topLeft: Radius.circular(AppConst.globalRadius),
+                  bottomLeft: Radius.circular(AppConst.globalRadius),
                 ),
-                child: Image.asset(
-                  product.productImage,
+                child: FancyShimmerImage(
+                  imageUrl: product.productImage,
                   width: 120,
                   height: 120,
-                  fit: BoxFit.cover,
+                  boxFit: BoxFit.cover,
                 ),
               ),
-              SizedBox(
+            ),
+            Expanded(
+              flex: 7,
+              child: SizedBox(
                 height: 120,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 8,
-                    horizontal: 12,
-                  ),
+                  padding: const EdgeInsets.all(AppConst.globalSizeBox * 2),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Helper.showProductDescription(
                         context: context,
                         productDescription: product.productName,
                       ),
-                      Expanded(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Helper.showProductPrice(
-                              productPrice: product.productPrice,
-                              context: context,
-                            ),
-                            //!ToDo: What problem
-                            Helper.wSizeBox(90),
-                            // Expanded(child: SizedBox()),
-                            const Icon(
-                              Icons.add_shopping_cart,
-                              color: AppColors.primaryColor,
-                            ),
-                          ],
-                        ),
+                      Helper.showProductPrice(
+                        productPrice: product.productPrice,
+                        context: context,
                       ),
                     ],
                   ),
                 ),
-              )
-            ],
-          ),
-        ));
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: SizedBox(
+                height: 120,
+                child: Padding(
+                  padding: const EdgeInsets.all(AppConst.globalPadding),
+                  child: Column(
+                    mainAxisAlignment: isCartCard
+                        ? MainAxisAlignment.spaceBetween
+                        : MainAxisAlignment.end,
+                    children: isCartCard
+                        ? [
+                            IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.add,
+                                color: AppColors.fontColor,
+                              ),
+                            ),
+                            Helper.showProductDescription(
+                              context: context,
+                              productDescription: '1',
+                            ),
+                            IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.minimize,
+                                color: AppColors.grayFontColor,
+                              ),
+                            ),
+                          ]
+                        : [
+                            IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.add_shopping_cart,
+                                color: AppColors.primaryColor,
+                              ),
+                            )
+                          ],
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

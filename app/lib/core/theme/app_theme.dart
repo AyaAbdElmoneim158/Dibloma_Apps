@@ -14,7 +14,7 @@ class MyThemes {
     fontFamily: AppStrings.fontFamily,
     appBarTheme: AppBarTheme(
       color: AppColors.whiteColor,
-      titleTextStyle: Styles.getTitleAppStyle,
+      titleTextStyle: TextStyles.getAppBarTitleTextStyle(),
       centerTitle: true,
       elevation: 0,
     ),

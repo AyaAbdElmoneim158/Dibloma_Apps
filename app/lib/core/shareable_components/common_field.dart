@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/core/utils/consts.dart';
 import 'package:todo_app/core/utils/helper.dart';
 import 'package:todo_app/core/utils/styles.dart';
 import 'package:todo_app/core/utils/app_colors.dart';
@@ -7,14 +8,15 @@ class CommonField extends StatelessWidget {
   const CommonField({
     super.key,
     this.hintText = '',
-    this.headerField = '',
+    this.headerField,
     this.keyboardType = TextInputType.text,
     this.obscureText = false,
     this.controller,
     this.validator,
     this.prefixIcon,
-    this.radius = 24,
+    this.radius = AppConst.globalRadius,
     this.textAlign = TextAlign.start,
+    this.vertical = 4,
   });
 
   final String? hintText;
@@ -26,27 +28,35 @@ class CommonField extends StatelessWidget {
   final String? Function(String?)? validator;
   final double radius;
   final TextAlign textAlign;
+  final double vertical;
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (headerField == null)
-          Text(
-            headerField!,
-            style: Styles.getHeaderFieldTextStyle(),
+        if (headerField != null)
+          Column(
+            children: [
+              Text(
+                headerField!,
+                style: TextStyles.getFieldTextStyle(),
+              ),
+              Helper.hSizeBox(12)
+            ],
           ),
-        Helper.hSizeBox(12),
         Container(
-          padding: const EdgeInsets.all(4),
+          alignment: Alignment.center,
+          padding: EdgeInsets.symmetric(vertical: vertical),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(radius),
             boxShadow: Styles.getBoxShadowStyle(),
             color: AppColors.whiteColor,
           ),
           child: TextFormField(
+            style: TextStyles.getFieldTextStyle(),
+            textAlignVertical: TextAlignVertical.center,
             controller: controller,
             validator: validator,
             keyboardType: keyboardType,

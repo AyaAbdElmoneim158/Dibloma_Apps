@@ -7,5 +7,8 @@ class AppColors {
   static const Color grayFontColor = Color(0xFFBFBFBF);
   static const Color lightGrayFontColor = Color(0xFFF2F2F2);
 
+static const Color headerFontColor = Color(0xFF242424);
+static const Color headerLabelFontColor = Color(0xFF818181);
+static const Color fieldColor = Color(0xFFb5b5b5);
 
 }

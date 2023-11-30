@@ -4,53 +4,99 @@ import 'package:todo_app/core/router/routes.dart';
 import 'package:todo_app/features/auth/screens/login_screen.dart';
 import 'package:todo_app/features/auth/screens/register_screen.dart';
 import 'package:todo_app/features/auth/screens/verification_screen.dart';
+import 'package:todo_app/features/card/card_screen.dart';
+import 'package:todo_app/features/checkout/language_screen.dart';
+import 'package:todo_app/features/checkout/my_cards_screen.dart';
+import 'package:todo_app/features/checkout/shipping_address.dart';
 import 'package:todo_app/features/home/details_screen.dart';
+import 'package:todo_app/features/home/notifications_screen.dart';
 import 'package:todo_app/features/main_screen.dart';
 import 'package:todo_app/features/splash/splash_screen.dart';
+import 'package:page_transition/page_transition.dart';
+//! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// final args = routeSettings.arguments as Map<String, dynamic>;
+// final product = args['product'];
+// final database = args['database'];
+// arguments: product,
+//! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Route? onGenerateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
     case Routes.initialRoute:
-      return MaterialPageRoute(
-        builder: ((context) {
-          return const SplashScreen();
-        }),
+      return PageTransition(
+        type: PageTransitionType.fade,
+        child: const SplashScreen(),
       );
     case Routes.loginRoute:
-      return MaterialPageRoute(
-        builder: ((context) {
-          return const LoginScreen();
-        }),
+      return PageTransition(
+        type: PageTransitionType.fade,
+        child: const LoginScreen(),
+        settings: routeSettings,
       );
+
     case Routes.registerRoute:
-      return MaterialPageRoute(
-        builder: ((context) {
-          return const RegisterScreen();
-        }),
+      return PageTransition(
+        type: PageTransitionType.fade,
+        child: const RegisterScreen(),
+        settings: routeSettings,
       );
     case Routes.verificationRoute:
-      return MaterialPageRoute(
-        builder: ((context) {
-          return const VerificationScreen();
-        }),
-      );
+      return PageTransition(
+          type: PageTransitionType.fade, child: const VerificationScreen());
+    // MaterialPageRoute(builder: ((context) {return const VerificationScreen();}),);
     case Routes.mainRoute:
-      return MaterialPageRoute(
-        builder: ((context) {
-          return const MainScreen();
-        }),
+      return PageTransition(
+        type: PageTransitionType.fade,
+        child: const MainScreen(),
+        settings: routeSettings,
       );
+
     case Routes.detailsProductRoute:
-      return MaterialPageRoute(
-        builder: ((context) {
-          return DetailsScreen(
-            product: products[1],
-          );
-        }),
+      final id = routeSettings.arguments as String;
+
+      return PageTransition(
+        type: PageTransitionType.fade,
+        child: DetailsScreen(
+          // product: dummyProducts[1],
+          productId: id,
+        ),
+        settings: routeSettings,
       );
+    case Routes.notificationRoute:
+      return PageTransition(
+        type: PageTransitionType.fade,
+        child: const NotificationScreen(),
+        settings: routeSettings,
+      );
+    case Routes.cartRoute:
+      return PageTransition(
+        type: PageTransitionType.fade,
+        child: const CardScreen(),
+        settings: routeSettings,
+      );
+    case Routes.shippingAddressRoute:
+      return PageTransition(
+        type: PageTransitionType.fade,
+        child: const ShippingAddress(),
+        settings: routeSettings,
+      );
+    case Routes.myCardsRoute:
+      return PageTransition(
+        type: PageTransitionType.fade,
+        child: const MyCardsScreen(),
+        settings: routeSettings,
+      );
+    case Routes.languageRoute:
+      return PageTransition(
+        type: PageTransitionType.fade,
+        child: const LanguageScreen(),
+        settings: routeSettings,
+      );
+
     default:
       return MaterialPageRoute(
         builder: (context) => const NotFoundPage(),
+        settings: routeSettings,
       );
   }
 }

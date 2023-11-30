@@ -8,4 +8,11 @@ class Routes {
 
   static const String mainRoute = '/main';
   static const String detailsProductRoute = '/detailsProduct';
+
+  static const String notificationRoute = '/notification';
+  static const String cartRoute = '/cart';
+
+  static const String shippingAddressRoute = '/shippingAddress';
+  static const String myCardsRoute = '/shippingAddress';
+  static const String languageRoute = '/language';
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/core/model/profile_model.dart';
+import 'package:todo_app/core/router/routes.dart';
 import 'package:todo_app/core/utils/app_colors.dart';
 import 'package:todo_app/core/utils/styles.dart';
 
@@ -10,7 +11,7 @@ class CommonProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () {},
+        onTap: () => Navigator.pushNamed(context, model.url),
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(18),
@@ -27,7 +28,7 @@ class CommonProfileCard extends StatelessWidget {
               ),
               title: Text(
                 model.name,
-                style: Styles.getHeaderDescriptionTextStyle(),
+                style: TextStyles.getProfileOptionTextStyle(),
               ),
               leading: Icon(
                 model.icon,
