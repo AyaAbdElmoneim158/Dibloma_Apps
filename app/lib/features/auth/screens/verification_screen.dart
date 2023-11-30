@@ -3,6 +3,7 @@ import 'package:todo_app/core/utils/app_strings.dart';
 import 'package:todo_app/core/utils/asset_manager.dart';
 import 'package:todo_app/core/utils/helper.dart';
 import 'package:todo_app/features/auth/widgets/verification_form.dart';
+import 'package:todo_app/core/utils/consts.dart';
 
 class VerificationScreen extends StatelessWidget {
   const VerificationScreen({super.key});
@@ -13,12 +14,12 @@ class VerificationScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(18),
+            padding: const EdgeInsets.all(AppConst.globalSizeBox * 3),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Helper.hSizeBox(64),
+                Helper.hSizeBox(AppConst.globalSizeBox * 8),
                 Helper.showHeader(header: AppStrings.verification),
                 Helper.showHeaderDescription(
                     headerDescription: AppStrings.otpCodeSend),

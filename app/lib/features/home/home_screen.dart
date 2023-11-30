@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/core/utils/app_strings.dart';
+import 'package:todo_app/core/utils/consts.dart';
 import 'package:todo_app/core/utils/helper.dart';
 import 'package:todo_app/features/home/widgets/best_selling_list.dart';
 import 'package:todo_app/features/home/widgets/feature_list.dart';
@@ -15,25 +16,23 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(18),
+            padding: const EdgeInsets.all(AppConst.globalPadding),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SearchHeader(),
-                Helper.hSizeBox(32),
-                Helper.showHeaderWithSeeMore(header: AppStrings.specialForYou),
-                Helper.hSizeBox(18),
+                Helper.showHeaderList(
+                  header: AppStrings.specialForYou,
+                ),
                 const SpecialList(),
-                Helper.hSizeBox(18),
-                Helper.showHeaderWithSeeMore(
-                    header: AppStrings.featuredProduct),
-                Helper.hSizeBox(18),
+                Helper.showHeaderList(
+                  header: AppStrings.featuredProduct,
+                ),
                 const FeaturedList(),
-                Helper.hSizeBox(18),
-                Helper.showHeaderWithSeeMore(
-                    header: AppStrings.bestSellingProduct),
-                Helper.hSizeBox(18),
+                Helper.showHeaderList(
+                  header: AppStrings.bestSellingProduct,
+                ),
                 const BestSellingList(),
               ],
             ),

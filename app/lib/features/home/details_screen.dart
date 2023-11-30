@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/core/model/product_model.dart';
 import 'package:todo_app/core/shareable_components/common_button.dart';
+import 'package:todo_app/core/utils/consts.dart';
 import 'package:todo_app/core/utils/helper.dart';
 import 'package:todo_app/features/home/widgets/color_list.dart';
 import 'package:todo_app/features/home/widgets/size_list.dart';
 
 class DetailsScreen extends StatelessWidget {
-  const DetailsScreen({super.key, required this.product});
-  final ProductModel product;
+  const DetailsScreen({super.key, required this.productId});
+  final String productId;
+
   @override
   Widget build(BuildContext context) {
+    ProductModel product =
+        dummyProducts.firstWhere((product) => product.productId == productId);
+    debugPrint("product: ${product.productId} $productId ");
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -30,7 +35,7 @@ class DetailsScreen extends StatelessWidget {
           ),
           Helper.hSizeBox(12),
           Padding(
-            padding: const EdgeInsets.all(12),
+            padding: const EdgeInsets.all(AppConst.globalPadding),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

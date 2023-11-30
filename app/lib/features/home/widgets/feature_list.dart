@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:todo_app/core/model/product_model.dart';
 import 'package:todo_app/core/shareable_components/common_product_v_card.dart';
+import 'package:todo_app/core/utils/consts.dart';
 import 'package:todo_app/core/utils/helper.dart';
 
 class FeaturedList extends StatelessWidget {
@@ -11,13 +12,15 @@ class FeaturedList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 250,
+      height: AppConst.homeListViewHeight * 1.6,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        separatorBuilder: (context, index) => Helper.wSizeBox(8),
-        itemCount: products.length,
+        physics: const BouncingScrollPhysics(),
+        separatorBuilder: (context, index) =>
+            Helper.wSizeBox(AppConst.globalSizeBox),
+        itemCount: dummyProducts.length,
         itemBuilder: (context, index) => CommonProductVCard(
-          product: products[index],
+          product: dummyProducts[index],
         ),
       ),
     );

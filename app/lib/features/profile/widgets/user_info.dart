@@ -4,7 +4,10 @@ import 'package:todo_app/core/utils/helper.dart';
 class UserInfo extends StatelessWidget {
   const UserInfo({
     super.key,
+    required this.email,
   });
+
+  final String email;
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +20,7 @@ class UserInfo extends StatelessWidget {
           ),
         ),
         Helper.hSizeBox(12),
-        Helper.showProductDescription(
-          context: context,
-          productDescription: 'John Doe',
-        ),
+        Helper.showUserName(userName: email),
       ],
     );
   }

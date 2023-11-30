@@ -1,8 +1,10 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:todo_app/core/shareable_components/common_circle_avatar.dart';
 import 'package:todo_app/core/shareable_components/common_field.dart';
 import 'package:todo_app/core/utils/app_colors.dart';
+import 'package:todo_app/core/utils/app_strings.dart';
+import 'package:todo_app/core/utils/consts.dart';
 import 'package:todo_app/core/utils/helper.dart';
 
 class SearchHeaderWithFilter extends StatelessWidget {
@@ -18,24 +20,24 @@ class SearchHeaderWithFilter extends StatelessWidget {
       children: [
         Expanded(
           child: CommonField(
-            hintText: 'Search Here...',
-            // headerField: ,
+            hintText: AppStrings.searchHere,
             validator: (val) {
               return null;
             },
             prefixIcon: const Icon(
-              IconlyLight.search,
+              Icons.search,
               color: AppColors.primaryColor,
             ),
           ),
         ),
-        Helper.wSizeBox(8),
+        Helper.wSizeBox(AppConst.globalSizeBox),
         const CommonCircleAvatar(
-            radius: 32,
-            avatar: Icon(
-              IconlyLight.filter,
-              color: AppColors.primaryColor,
-            )),
+          radius: 32,
+          avatar: Icon(
+            IconlyLight.filter,
+            color: AppColors.primaryColor,
+          ),
+        ),
       ],
     );
   }

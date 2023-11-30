@@ -13,9 +13,10 @@ class CategoriesGrid extends StatelessWidget {
     return Expanded(
       child: GridView.builder(
         gridDelegate: Styles.gridDelegateStyle(),
-        itemCount: categories.length,
+        physics: const BouncingScrollPhysics(),
+        itemCount: dummyCategories.length,
         itemBuilder: (context, index) => CommonCategoryCard(
-          category: categories[index],
+          category: dummyCategories[index],
         ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/utils/app_colors.dart';
+import 'package:todo_app/core/utils/app_strings.dart';
+import 'package:todo_app/core/utils/consts.dart';
 import 'package:todo_app/core/utils/helper.dart';
 import 'package:todo_app/features/search/widgets/search_header_with_filter.dart';
 import 'package:todo_app/features/search/widgets/searched_list.dart';
@@ -10,18 +11,13 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Search"),
-        centerTitle: true,
-        backgroundColor: AppColors.whiteColor,
-        elevation: 0,
-      ),
+      appBar: Helper.buildAppBar(title: AppStrings.searchProduct),
       body: Padding(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.all(AppConst.globalPadding),
         child: Column(
           children: [
             const SearchHeaderWithFilter(),
-            Helper.hSizeBox(32),
+            Helper.hSizeBox(AppConst.globalSizeBox * 4),
             const SearchedList(),
           ],
         ),

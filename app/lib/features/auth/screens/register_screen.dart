@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/core/utils/app_strings.dart';
 import 'package:todo_app/core/utils/asset_manager.dart';
+import 'package:todo_app/core/utils/consts.dart';
 import 'package:todo_app/core/utils/helper.dart';
 import 'package:todo_app/features/auth/widgets/register_form.dart';
 
@@ -14,21 +15,21 @@ class RegisterScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(18),
+            padding: const EdgeInsets.all(AppConst.globalPadding),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Helper.hSizeBox(32),
+                Helper.hSizeBox(AppConst.globalSizeBox * 4),
                 Helper.showHeader(header: AppStrings.signUp),
                 Helper.showHeaderDescription(
                     headerDescription: AppStrings.enterInfo),
-                Helper.hSizeBox(18),
+                Helper.hSizeBox(AppConst.globalSizeBox * 3),
                 Image.asset(
                   ImageAssets.shoppingImage,
                   height: MediaQuery.of(context).size.height * 0.2,
                 ),
-                Helper.hSizeBox(12),
+                Helper.hSizeBox(AppConst.globalSizeBox * 2),
                 const RegisterForm()
               ],
             ),

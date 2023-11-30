@@ -1,9 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_app/core/router/routes.dart';
 import 'package:todo_app/core/utils/app_strings.dart';
+import 'package:todo_app/core/utils/asset_manager.dart';
 import 'package:todo_app/core/utils/styles.dart';
+import 'package:todo_app/features/auth/provider/auth_provider.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,7 +20,13 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () {
-      Navigator.pushNamed(context, Routes.loginRoute);
+      // debugPrint("authStatus At Splash: ${Provider.of<AuthProvide>(context, listen: false).authStatus}");
+      // Provider.of<AuthProvide>(context, listen: false).authStatus ==
+      //         AuthStatus.unAuthenticated
+      //     ? Navigator.pushReplacementNamed(context, Routes.loginRoute)
+      //     : Navigator.pushReplacementNamed(context, Routes.mainRoute);
+      Navigator.pushReplacementNamed(context, Routes.loginRoute,
+          arguments: {"name": "Aya", "Email": "aya@example.com"});
     });
   }
 
@@ -30,10 +39,12 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset('assets/images/Woman Shopping.gif'),
+            Image.asset(
+              ImageAssets.shoppingImage,
+            ),
             Text(
               AppStrings.splashText,
-              style: Styles.getSplashTextStyle(),
+              style: TextStyles.getSplashTextStyle(),
             ),
           ],
         ),

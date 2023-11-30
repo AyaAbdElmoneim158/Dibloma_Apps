@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/core/utils/app_strings.dart';
+import 'package:todo_app/core/utils/consts.dart';
 import 'package:todo_app/core/utils/helper.dart';
 import 'package:todo_app/features/category/widgets/categories_grid.dart';
 import 'package:todo_app/features/category/widgets/category_search_box.dart';
@@ -9,16 +11,13 @@ class CategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Categories"),
-        centerTitle: true,
-      ),
+      appBar: Helper.buildAppBar(title: AppStrings.searchCategory),
       body: Padding(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.symmetric(horizontal: AppConst.globalPadding),
         child: Column(
           children: [
             const CategorySearchBox(),
-            Helper.hSizeBox(32),
+            Helper.hSizeBox(AppConst.globalSizeBox * 4),
             const CategoriesGrid(),
           ],
         ),

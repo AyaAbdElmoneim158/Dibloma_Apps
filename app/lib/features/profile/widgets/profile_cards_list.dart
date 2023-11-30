@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:todo_app/core/model/profile_model.dart';
 import 'package:todo_app/core/shareable_components/common_profile_card.dart';
+import 'package:todo_app/core/utils/consts.dart';
 import 'package:todo_app/core/utils/helper.dart';
 
 class ProfileCardsList extends StatelessWidget {
@@ -15,7 +16,8 @@ class ProfileCardsList extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) =>
             CommonProfileCard(model: profileCards[index]),
-        separatorBuilder: (context, index) => Helper.hSizeBox(12),
+        separatorBuilder: (context, index) =>
+            Helper.hSizeBox(AppConst.globalPadding),
         itemCount: profileCards.length,
       ),
     );
