@@ -1,47 +1,83 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/model/product_model.dart';
-import 'package:todo_app/core/shareable_components/common_product_v_card.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:todo_app/core/language_constants.dart';
+import 'package:todo_app/core/model/language_model.dart';
+import 'package:todo_app/main.dart';
+import 'package:country_flags/country_flags.dart';
 
 class InitPage extends StatelessWidget {
   const InitPage({super.key});
 
+  String generateCountryFlag(String countryCode) {
+    // String countryCode = 'eg';
+
+    String flag = countryCode.toUpperCase().replaceAllMapped(RegExp(r'[A-Z]'),
+        (match) => String.fromCharCode(match.group(0)!.codeUnitAt(0) + 127397));
+
+    return flag;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Languages"),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: DropdownButton<LanguageModel>(
+              underline: const SizedBox(),
+              icon: const Icon(
+                Icons.language,
+                color: Colors.black,
+              ),
+              onChanged: (LanguageModel? language) async {
+                if (language != null) {
+                  StoreApp.setLocale(context, await setLocale(language.languageCode));
+                }
+              },
+              items: LanguageModel.languageList()
+                  .map<DropdownMenuItem<LanguageModel>>(
+                    (e) => DropdownMenuItem<LanguageModel>(
+                      value: e,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: <Widget>[
+                          Text(
+                            e.flag,
+                            style: const TextStyle(fontSize: 30),
+                          ),
+                          Text(e.name),
+                          Text(generateCountryFlag(e.languageCode)),
+                          CountryFlag.fromLanguageCode(
+                            e.languageCode,
+                            width: 50,
+                          ),
+                          // generateCountryFlag
+                        ],
+                      ),
+                    ),
+                  )
+                  .toList(),
+            ),
+          ),
+        ],
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              /*Text(
-                "Store App",
+              Text(
+                AppLocalizations.of(context)!.settings,
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
-              Image.asset('assets/images/Woman Shopping.gif'),*/
-              //!---------------------------------
-              // const CommonButton(buttonText: 'Login'),
-              // CommonCategoryCard(category: categories[2]),
-              // CommonCircleAvatar(
-              //   avatar: Svg
-              // ),
-              /* CommonCircleAvatar(
-                radius: 32,
-                avatar: Icon(
-                  IconlyBroken.notification,
-                  color: AppColors.primaryColor,
-                ),
-              ),
-              CommonField(
-                hintText: 'Search here....',
-                prefixIcon: Icon(
-                  IconlyBroken.search,
-                  color: AppColors.primaryColor,
-                ),
-              ),*/
-              // CommonProductHCard(product: products[1]),
-              // CommonProfileCard(model: profileCards[1]),
-              CommonProductVCard(product: products[1]),
+
+              //! test TestStyles------------------------------------
+              //  Text("dj", style: Theme.of(context).textTheme.labelLarge,)
             ],
           ),
         ),
