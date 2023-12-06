@@ -3,7 +3,7 @@ import 'package:todo_app/core/utils/app_strings.dart';
 import 'package:todo_app/core/utils/asset_manager.dart';
 import 'package:todo_app/core/utils/consts.dart';
 import 'package:todo_app/core/utils/helper.dart';
-import 'package:todo_app/features/auth/widgets/register_form.dart';
+import 'package:todo_app/features/auth/view/widgets/register_form.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});

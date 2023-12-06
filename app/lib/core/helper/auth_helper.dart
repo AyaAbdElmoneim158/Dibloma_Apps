@@ -25,7 +25,7 @@ class AuthHelper {
   }
 
   ///~> authStateChanges---------------------------------------------------------
-  Stream authStateChanges() => _firebaseAuth.authStateChanges();
+  Stream<User?> authStateChanges() => _firebaseAuth.authStateChanges();
 
   ///~> currentUser-------------------------------------------------------------
   User? get currentUser =>

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/core/model/product_model.dart';
 import 'package:todo_app/core/router/routes.dart';
-import 'package:todo_app/features/auth/screens/login_screen.dart';
-import 'package:todo_app/features/auth/screens/register_screen.dart';
-import 'package:todo_app/features/auth/screens/verification_screen.dart';
+import 'package:todo_app/features/auth/view/screens/login_screen.dart';
+import 'package:todo_app/features/auth/view/screens/register_screen.dart';
+import 'package:todo_app/features/auth/view/screens/verification_screen.dart';
 import 'package:todo_app/features/card/card_screen.dart';
 import 'package:todo_app/features/checkout/language_screen.dart';
 import 'package:todo_app/features/checkout/my_cards_screen.dart';
@@ -11,7 +11,7 @@ import 'package:todo_app/features/checkout/shipping_address.dart';
 import 'package:todo_app/features/home/details_screen.dart';
 import 'package:todo_app/features/home/notifications_screen.dart';
 import 'package:todo_app/features/main_screen.dart';
-import 'package:todo_app/features/splash/splash_screen.dart';
+import 'package:todo_app/features/auth/view/screens/splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
 //! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // final args = routeSettings.arguments as Map<String, dynamic>;

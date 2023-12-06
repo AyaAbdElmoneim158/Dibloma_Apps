@@ -20,13 +20,13 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () {
-      // debugPrint("authStatus At Splash: ${Provider.of<AuthProvide>(context, listen: false).authStatus}");
-      // Provider.of<AuthProvide>(context, listen: false).authStatus ==
-      //         AuthStatus.unAuthenticated
-      //     ? Navigator.pushReplacementNamed(context, Routes.loginRoute)
-      //     : Navigator.pushReplacementNamed(context, Routes.mainRoute);
-      Navigator.pushReplacementNamed(context, Routes.loginRoute,
-          arguments: {"name": "Aya", "Email": "aya@example.com"});
+      debugPrint(
+          "authStatus At Splash: ${Provider.of<AuthProvide>(context, listen: false).authStatus}");
+      Provider.of<AuthProvide>(context, listen: false).authStatus ==
+              AuthStatus.userUnAuthorized
+          ? Navigator.pushReplacementNamed(context, Routes.loginRoute)
+          : Navigator.pushReplacementNamed(context, Routes.mainRoute);
+      //! Navigator.pushReplacementNamed(context, Routes.loginRoute,arguments: {"name": "Aya", "Email": "aya@example.com"});
     });
   }
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_app/core/helper/form_validator.dart';
 import 'package:todo_app/core/utils/consts.dart';
 import 'package:todo_app/core/router/routes.dart';
 import 'package:todo_app/core/shareable_components/common_button.dart';
@@ -10,6 +12,7 @@ import 'package:todo_app/core/utils/app_strings.dart';
 import 'package:todo_app/core/utils/asset_manager.dart';
 import 'package:todo_app/core/utils/helper.dart';
 import 'package:todo_app/core/utils/styles.dart';
+import 'package:todo_app/features/auth/provider/auth_provider.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -22,6 +25,8 @@ class _LoginFormState extends State<LoginForm> {
   late TextEditingController emailController;
   late TextEditingController passwordController;
   final formKey = GlobalKey<FormState>();
+  AutovalidateMode? autovalidateMode = AutovalidateMode.disabled;
+  String? emailVal, passwordVal;
 
   @override
   void initState() {
@@ -39,44 +44,26 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    // var authProvider = Provider.of<AuthProvide>(context);
+    var authProvider = Provider.of<AuthProvide>(context);
 
     void login() async {
       if (formKey.currentState!.validate()) {
-        // debugPrint('authStatus At Login: ${authProvider.authStatus}');
-        // await authProvider.loginUser(
-        //   emailController.text,
-        //   passwordController.text,
-        // )
-        //     // ignore: use_build_context_synchronously
-        //     ? Navigator.pushReplacementNamed(context, Routes.mainRoute)
-        //     // ignore: use_build_context_synchronously
-        //     : Helper
-        //         // .showAwesomeSnackbar(message: authProvider.errorMsg,contentType: ContentType.failure);
-        //         .showSnakeBar(context, authProvider.errorMsg);
-
-        // debugPrint('authStatus At Login:  ${authProvider.authStatus} &&  loginStatus $loginStatus');
-        // debugPrint('Login: Email ${emailController.text} || password ${passwordController.text}');
-
-        // authProvider.loginWithEmail(
-        //   emailController.text,
-        //   passwordController.text,
-        // );
-
-        // if (authProvider.authStatus == AuthStatus.authenticated) {
-        //   Navigator.pushReplacementNamed(context, Routes.mainRoute);
-        // } else if (authProvider.authStatus == AuthStatus.unAuthenticated) {
-        //   Helper.showSnakeBar(context, authProvider.errorMsg);
-        // } else {
-        //   Helper.showSnakeBar(context, authProvider.errorMsg);
-        // }
+        if (await authProvider.login(
+            emailController.text, passwordController.text)) {
+          // ignore: use_build_context_synchronously
+          Navigator.pushReplacementNamed(context, Routes.mainRoute);
+        } else {
+          // ignore: use_build_context_synchronously
+          Helper.showSnakeBar(context, authProvider.errorMsg);
+        }
       } else {
-        debugPrint("not valid");
+        debugPrint("not valid form");
       }
     }
 
     return Form(
         key: formKey,
+        autovalidateMode: autovalidateMode,
         child: Column(
           children: [
             CommonField(
@@ -85,9 +72,9 @@ class _LoginFormState extends State<LoginForm> {
               keyboardType: TextInputType.emailAddress,
               controller: emailController,
               validator: (val) {
+                // if (val!.isValidEmail) return 'Enter valid password';
+                if (val!.isEmpty) return 'Please enter a valid password';
                 return null;
-
-                // if (val!.isValidEmail) return 'Enter valid email';
               },
             ),
             Helper.hSizeBox(AppConst.globalSizeBox * 3),
@@ -97,9 +84,8 @@ class _LoginFormState extends State<LoginForm> {
               controller: passwordController,
               obscureText: true,
               validator: (val) {
-                // if (val!.isValidPassword) {
-                //   return 'Enter valid password';
-                // }
+                if (val!.isValidPassword) return 'Enter valid password';
+                if (val.isEmpty) return 'Please enter a valid password';
                 return null;
               },
             ),
@@ -119,19 +105,16 @@ class _LoginFormState extends State<LoginForm> {
             ),
             Helper.hSizeBox(AppConst.globalSizeBox * 4),
             CommonButton(
-                buttonTextWidget: /* false  authProvider.authStatus ==
-                      AuthStatus.authenticating
+              buttonTextWidget: authProvider.authStatus ==
+                      AuthStatus.loginLoadingState
                   ? const CircularProgressIndicator(color: AppColors.whiteColor)
-                  : */
-                    Text(
-                  AppStrings.login,
-                  style: TextStyles.getBtnTextStyle(),
-                ),
-                radius: 4,
-                onTap: () => Navigator.pushNamed(context, Routes.mainRoute)
-
-                // login,
-                ),
+                  : Text(
+                      AppStrings.login,
+                      style: TextStyles.getBtnTextStyle(),
+                    ),
+              radius: 4,
+              onTap: login,
+            ),
             Helper.hSizeBox(AppConst.globalSizeBox * 4),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

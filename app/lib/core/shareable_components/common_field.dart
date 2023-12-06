@@ -17,6 +17,8 @@ class CommonField extends StatelessWidget {
     this.radius = AppConst.globalRadius,
     this.textAlign = TextAlign.start,
     this.vertical = 4,
+    this.onSaved,
+    this.autovalidateMode,
   });
 
   final String? hintText;
@@ -29,6 +31,8 @@ class CommonField extends StatelessWidget {
   final double radius;
   final TextAlign textAlign;
   final double vertical;
+  final void Function(String?)? onSaved;
+  final AutovalidateMode? autovalidateMode;
 
   @override
   Widget build(BuildContext context) {
@@ -55,10 +59,19 @@ class CommonField extends StatelessWidget {
             color: AppColors.whiteColor,
           ),
           child: TextFormField(
+            autovalidateMode: autovalidateMode,
+            onSaved: onSaved,
             style: TextStyles.getFieldTextStyle(),
             textAlignVertical: TextAlignVertical.center,
             controller: controller,
             validator: validator,
+            //  (val) {
+            //   if (val?.isEmpty ?? true) {
+            //     return 'Field is empty';
+            //   } else {
+            //     return null;
+            //   }
+            // },
             keyboardType: keyboardType,
             obscureText: obscureText,
             obscuringCharacter: "*",
