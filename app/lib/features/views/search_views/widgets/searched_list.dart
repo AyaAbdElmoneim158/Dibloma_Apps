@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:todo_app/features/model/product_model.dart';
+import '/features/model/product_model.dart';
 import '/core/shareable_components/common_product_h_card.dart';
 import '/core/utils/consts.dart';
 import '/core/utils/helper.dart';
@@ -24,7 +24,7 @@ class SearchedList extends StatelessWidget {
               verticalOffset: 50.0,
               child: FadeInAnimation(
                 child: CommonProductHCard(
-                  product: dummyProducts [index],
+                  product: dummyProducts[index],
                 ),
               ),
             ),

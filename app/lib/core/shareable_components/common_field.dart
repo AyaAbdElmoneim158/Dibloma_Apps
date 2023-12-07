@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/utils/consts.dart';
-import 'package:todo_app/core/utils/helper.dart';
-import 'package:todo_app/core/utils/styles.dart';
-import 'package:todo_app/core/utils/app_colors.dart';
+import '/core/utils/consts.dart';
+import '/core/utils/helper.dart';
+import '/core/utils/styles.dart';
+import '/core/utils/app_colors.dart';
 
 class CommonField extends StatelessWidget {
   const CommonField({

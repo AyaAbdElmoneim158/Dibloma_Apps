@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:todo_app/core/shareable_components/common_card.dart';
-import 'package:todo_app/core/utils/app_colors.dart';
-import 'package:todo_app/core/utils/app_strings.dart';
-import 'package:todo_app/core/utils/helper.dart';
+import '/core/shareable_components/common_card.dart';
+import '/core/utils/app_colors.dart';
+import '/core/utils/app_strings.dart';
+import '/core/utils/helper.dart';
 
 class ShippingAddressCard extends StatelessWidget {
   const ShippingAddressCard({

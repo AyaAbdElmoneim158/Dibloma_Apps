@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/utils/helper.dart';
+import '/core/utils/helper.dart';
 
 class ColorsList extends StatelessWidget {
   const ColorsList({

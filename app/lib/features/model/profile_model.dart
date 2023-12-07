@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:todo_app/core/router/routes.dart';
+import '/core/router/routes.dart';
 
 class ProfileModel {
   String name;

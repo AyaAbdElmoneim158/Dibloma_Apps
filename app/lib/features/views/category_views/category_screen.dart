@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/utils/app_strings.dart';
-import 'package:todo_app/core/utils/consts.dart';
-import 'package:todo_app/core/utils/helper.dart';
-import 'package:todo_app/features/views/category_views/widgets/categories_grid.dart';
-import 'package:todo_app/features/views/category_views/widgets/category_search_box.dart';
+import '/core/utils/app_strings.dart';
+import '/core/utils/consts.dart';
+import '/core/utils/helper.dart';
+import '/features/views/category_views/widgets/categories_grid.dart';
+import '/features/views/category_views/widgets/category_search_box.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({super.key});

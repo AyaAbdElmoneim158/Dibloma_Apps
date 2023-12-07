@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/shareable_components/common_card.dart';
-import 'package:todo_app/core/utils/app_colors.dart';
-import 'package:todo_app/core/utils/app_strings.dart';
-import 'package:todo_app/core/utils/helper.dart';
-import 'package:todo_app/core/utils/consts.dart';
+import '/core/shareable_components/common_card.dart';
+import '/core/utils/app_colors.dart';
+import '/core/utils/app_strings.dart';
+import '/core/utils/helper.dart';
+import '/core/utils/consts.dart';
 
 class ActiveCard extends StatelessWidget {
   const ActiveCard({

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:todo_app/core/utils/app_colors.dart';
-import 'package:todo_app/core/utils/consts.dart';
-import 'package:todo_app/core/utils/helper.dart';
-import 'package:todo_app/core/utils/size_config.dart';
+import '/core/utils/app_colors.dart';
+import '/core/utils/consts.dart';
+import '/core/utils/helper.dart';
+import '/core/utils/size_config.dart';
 
 class ProfileImageDialog extends StatelessWidget {
   const ProfileImageDialog({super.key});

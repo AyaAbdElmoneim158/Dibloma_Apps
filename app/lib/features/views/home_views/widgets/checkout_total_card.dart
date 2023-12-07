@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/shareable_components/common_button.dart';
-import 'package:todo_app/core/utils/app_strings.dart';
-import 'package:todo_app/core/utils/helper.dart';
+import '/core/shareable_components/common_button.dart';
+import '/core/utils/app_strings.dart';
+import '/core/utils/helper.dart';
 
 class CheckoutTotalCard extends StatelessWidget {
   const CheckoutTotalCard({

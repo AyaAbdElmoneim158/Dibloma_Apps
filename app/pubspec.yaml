@@ -46,6 +46,14 @@ flutter:
     - assets/images/
     - assets/images/categories/
     - assets/images/products/
+    - app/assets/user_images/
+    - app/assets/user_images/bag/
+    - app/assets/user_images/banners/
+    - app/assets/user_images/categories/
+    - app/assets/user_images/profile/
+    - app/assets/admin_images/
+    - app/assets/admin_images/categories/
+    - app/assets/admin_images/dashboard/
 
   fonts:
     - family: Laila

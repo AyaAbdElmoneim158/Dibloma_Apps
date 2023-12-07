@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/utils/consts.dart';
-import 'package:todo_app/core/utils/helper.dart';
-import 'package:todo_app/features/views/home_views/widgets/promotions_card.dart';
+import '/core/utils/consts.dart';
+import '/core/utils/helper.dart';
+import '/features/views/home_views/widgets/promotions_card.dart';
 
 class PromotionsListView extends StatelessWidget {
   const PromotionsListView({

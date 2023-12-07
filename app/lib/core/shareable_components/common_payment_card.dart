@@ -1,6 +1,6 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/utils/app_colors.dart';
+import '/core/utils/app_colors.dart';
 
 class PaymentCard extends StatelessWidget {
   const PaymentCard({super.key, required this.paymentImage, this.onTap});

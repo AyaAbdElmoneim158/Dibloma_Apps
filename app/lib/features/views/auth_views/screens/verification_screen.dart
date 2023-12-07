@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/utils/app_strings.dart';
-import 'package:todo_app/core/utils/asset_manager.dart';
-import 'package:todo_app/core/utils/helper.dart';
-import 'package:todo_app/features/views/auth_views/widgets/verification_form.dart';
-import 'package:todo_app/core/utils/consts.dart';
+import '/core/utils/app_strings.dart';
+import '/core/utils/asset_manager.dart';
+import '/core/utils/helper.dart';
+import '/features/views/auth_views/widgets/verification_form.dart';
+import '/core/utils/consts.dart';
 
 class VerificationScreen extends StatelessWidget {
   const VerificationScreen({super.key});

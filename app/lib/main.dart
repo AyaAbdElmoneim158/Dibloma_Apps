@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_app/features/providers/main_provider.dart';
+import 'package:todo_app/features/views/main_views/main_screen.dart';
 import '/core/utils/language_constants.dart';
 import '/features/providers/auth_provider.dart';
 import '/features/providers/theme_provider.dart';
 import '/core/theme/app_theme.dart';
 import '/core/utils/app_strings.dart';
-import '/features/views/profile_views/screens/profile_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() async {
@@ -45,6 +46,7 @@ class _StoreAppState extends State<StoreApp> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (_) => MainProvider()),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => AuthProvide()),
       ],
@@ -75,7 +77,7 @@ class MyApp extends StatelessWidget {
       locale: _locale,
       // onGenerateRoute: onGenerateRoute,
       // initialRoute: Routes.initialRoute,
-      home: const ProfileScreen(),
+      home: const MainScreen(),
     );
   }
 }

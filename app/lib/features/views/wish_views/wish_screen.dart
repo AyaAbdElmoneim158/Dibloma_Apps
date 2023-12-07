@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/utils/app_strings.dart';
-import 'package:todo_app/core/utils/consts.dart';
-import 'package:todo_app/core/utils/helper.dart';
-import 'package:todo_app/features/views/wish_views/widgets/wish_list.dart';
-import 'package:todo_app/features/views/wish_views/widgets/wish_search_box.dart';
+import '/core/utils/app_strings.dart';
+import '/core/utils/consts.dart';
+import '/core/utils/helper.dart';
+import '/features/views/wish_views/widgets/wish_list.dart';
+import '/features/views/wish_views/widgets/wish_search_box.dart';
 
 class WishScreen extends StatelessWidget {
   const WishScreen({super.key});

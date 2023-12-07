@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:todo_app/core/shareable_components/common_circle_avatar.dart';
-import 'package:todo_app/core/shareable_components/common_field.dart';
-import 'package:todo_app/core/utils/app_colors.dart';
-import 'package:todo_app/core/utils/app_strings.dart';
-import 'package:todo_app/core/utils/consts.dart';
-import 'package:todo_app/core/utils/helper.dart';
+import '/core/shareable_components/common_circle_avatar.dart';
+import '/core/shareable_components/common_field.dart';
+import '/core/utils/app_colors.dart';
+import '/core/utils/app_strings.dart';
+import '/core/utils/consts.dart';
+import '/core/utils/helper.dart';
 
 class SearchHeaderWithFilter extends StatelessWidget {
   const SearchHeaderWithFilter({

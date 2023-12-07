@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/utils/app_colors.dart';
-import 'package:todo_app/core/utils/app_strings.dart';
-import 'package:todo_app/core/utils/consts.dart';
+import '/core/utils/app_colors.dart';
+import '/core/utils/app_strings.dart';
+import '/core/utils/consts.dart';
 
 class Styles {
   final BuildContext context;

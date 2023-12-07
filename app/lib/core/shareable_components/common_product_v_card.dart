@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import '/features/model/product_model.dart';
-import 'package:todo_app/core/router/routes.dart';
-import 'package:todo_app/core/shareable_components/common_circle_avatar.dart';
-import 'package:todo_app/core/utils/app_colors.dart';
-import 'package:todo_app/core/utils/consts.dart';
-import 'package:todo_app/core/utils/helper.dart';
-import 'package:todo_app/core/utils/styles.dart';
+import '/core/router/routes.dart';
+import '/core/shareable_components/common_circle_avatar.dart';
+import '/core/utils/app_colors.dart';
+import '/core/utils/consts.dart';
+import '/core/utils/helper.dart';
+import '/core/utils/styles.dart';
 
 class CommonProductVCard extends StatelessWidget {
   const CommonProductVCard({super.key, required this.product});

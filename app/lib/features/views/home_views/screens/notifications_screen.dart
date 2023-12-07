@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/utils/app_strings.dart';
-import 'package:todo_app/core/utils/consts.dart';
-import 'package:todo_app/core/utils/helper.dart';
-import 'package:todo_app/features/views/profile_views/widgets/activity_list_view.dart';
-import 'package:todo_app/features/views/profile_views/widgets/promotions_list_view.dart';
+import '/core/utils/app_strings.dart';
+import '/core/utils/consts.dart';
+import '/core/utils/helper.dart';
+import '/features/views/profile_views/widgets/activity_list_view.dart';
+import '/features/views/profile_views/widgets/promotions_list_view.dart';
 
 class NotificationScreen extends StatelessWidget {
   const NotificationScreen({super.key});

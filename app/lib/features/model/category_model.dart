@@ -1,4 +1,4 @@
-import 'package:todo_app/core/utils/asset_manager.dart';
+import '/core/utils/asset_manager.dart';
 
 class CategoryModel {
   String name;

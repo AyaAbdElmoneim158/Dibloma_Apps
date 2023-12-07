@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/utils/app_strings.dart';
-import 'package:todo_app/core/utils/consts.dart';
-import 'package:todo_app/core/utils/helper.dart';
-import 'package:todo_app/features/views/profile_views/widgets/shipping_address_card.dart';
+import '/core/utils/app_strings.dart';
+import '/core/utils/consts.dart';
+import '/core/utils/helper.dart';
+import '/features/views/profile_views/widgets/shipping_address_card.dart';
 
 class ShippingAddress extends StatelessWidget {
   const ShippingAddress({super.key});

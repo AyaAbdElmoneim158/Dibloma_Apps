@@ -1,10 +1,10 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/shareable_components/common_card.dart';
-import 'package:todo_app/core/utils/app_strings.dart';
-import 'package:todo_app/core/utils/asset_manager.dart';
-import 'package:todo_app/core/utils/consts.dart';
-import 'package:todo_app/core/utils/helper.dart';
+import '/core/shareable_components/common_card.dart';
+import '/core/utils/app_strings.dart';
+import '/core/utils/asset_manager.dart';
+import '/core/utils/consts.dart';
+import '/core/utils/helper.dart';
 
 class PromotionsCard extends StatelessWidget {
   const PromotionsCard({super.key});

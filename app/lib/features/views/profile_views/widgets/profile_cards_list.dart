@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:todo_app/features/model/profile_model.dart';
-import 'package:todo_app/core/shareable_components/common_profile_card.dart';
-import 'package:todo_app/core/utils/consts.dart';
-import 'package:todo_app/core/utils/helper.dart';
+import '/features/model/profile_model.dart';
+import '/core/shareable_components/common_profile_card.dart';
+import '/core/utils/consts.dart';
+import '/core/utils/helper.dart';
 
 class ProfileCardsList extends StatelessWidget {
   const ProfileCardsList({
