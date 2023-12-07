@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/model/product_model.dart';
 import 'package:todo_app/core/router/routes.dart';
-import 'package:todo_app/features/auth/view/screens/login_screen.dart';
-import 'package:todo_app/features/auth/view/screens/register_screen.dart';
-import 'package:todo_app/features/auth/view/screens/verification_screen.dart';
-import 'package:todo_app/features/card/card_screen.dart';
-import 'package:todo_app/features/checkout/language_screen.dart';
-import 'package:todo_app/features/checkout/my_cards_screen.dart';
-import 'package:todo_app/features/checkout/shipping_address.dart';
-import 'package:todo_app/features/home/details_screen.dart';
-import 'package:todo_app/features/home/notifications_screen.dart';
+import 'package:todo_app/features/views/auth_views/screens/login_screen.dart';
+import 'package:todo_app/features/views/auth_views/screens/register_screen.dart';
+import 'package:todo_app/features/views/auth_views/screens/verification_screen.dart';
+import 'package:todo_app/features/views/home_views/screens/card_screen.dart';
+import 'package:todo_app/features/views/profile_views/screens/language_screen.dart';
+import 'package:todo_app/features/views/profile_views/screens/shipping_address.dart';
+import 'package:todo_app/features/views/home_views/screens/details_screen.dart';
+import 'package:todo_app/features/views/home_views/screens/notifications_screen.dart';
 import 'package:todo_app/features/main_screen.dart';
-import 'package:todo_app/features/auth/view/screens/splash_screen.dart';
+import 'package:todo_app/features/views/auth_views/screens/splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
 //! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // final args = routeSettings.arguments as Map<String, dynamic>;
@@ -78,12 +76,6 @@ Route? onGenerateRoute(RouteSettings routeSettings) {
       return PageTransition(
         type: PageTransitionType.fade,
         child: const ShippingAddress(),
-        settings: routeSettings,
-      );
-    case Routes.myCardsRoute:
-      return PageTransition(
-        type: PageTransitionType.fade,
-        child: const MyCardsScreen(),
         settings: routeSettings,
       );
     case Routes.languageRoute:

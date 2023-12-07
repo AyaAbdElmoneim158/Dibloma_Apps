@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:todo_app/core/language_constants.dart';
-import 'package:todo_app/core/model/language_model.dart';
-import 'package:todo_app/main.dart';
+import '/core/utils/language_constants.dart';
+import '/features/model/language_model.dart';
+import '/main.dart';
 import 'package:country_flags/country_flags.dart';
 
 class InitPage extends StatelessWidget {

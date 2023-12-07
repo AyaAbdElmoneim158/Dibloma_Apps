@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/model/profile_model.dart';
-import 'package:todo_app/core/router/routes.dart';
+import 'package:todo_app/features/model/profile_model.dart';
 import 'package:todo_app/core/utils/app_colors.dart';
 import 'package:todo_app/core/utils/styles.dart';
 

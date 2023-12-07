@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:todo_app/core/model/product_model.dart';
+import '/features/model/product_model.dart';
 import 'package:todo_app/core/router/routes.dart';
 import 'package:todo_app/core/shareable_components/common_circle_avatar.dart';
 import 'package:todo_app/core/utils/app_colors.dart';

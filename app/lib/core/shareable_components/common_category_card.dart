@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/model/category_model.dart';
-import 'package:todo_app/core/utils/consts.dart';
-import 'package:todo_app/core/utils/styles.dart';
+import '/features/model/category_model.dart';
+import '/core/utils/consts.dart';
+import '/core/utils/styles.dart';
 
 class CommonCategoryCard extends StatelessWidget {
   const CommonCategoryCard({super.key, required this.category});

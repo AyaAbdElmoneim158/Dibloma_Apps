@@ -1,11 +1,11 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_app/core/model/product_model.dart';
-import 'package:todo_app/core/router/routes.dart';
-import 'package:todo_app/core/shareable_components/common_card.dart';
-import 'package:todo_app/core/utils/app_colors.dart';
-import 'package:todo_app/core/utils/consts.dart';
-import 'package:todo_app/core/utils/helper.dart';
+import '/features/model/product_model.dart';
+import '/core/router/routes.dart';
+import '/core/shareable_components/common_card.dart';
+import '/core/utils/app_colors.dart';
+import '/core/utils/consts.dart';
+import '/core/utils/helper.dart';
 
 class CommonProductHCard extends StatelessWidget {
   const CommonProductHCard({

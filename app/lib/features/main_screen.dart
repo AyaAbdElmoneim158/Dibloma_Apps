@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:todo_app/core/utils/helper.dart';
 import 'package:todo_app/core/utils/app_strings.dart';
-import 'package:todo_app/features/category/category_screen.dart';
-import 'package:todo_app/features/home/home_screen.dart';
-import 'package:todo_app/features/profile/profile_screen.dart';
-import 'package:todo_app/features/search/search_screen.dart';
-import 'package:todo_app/features/wish/wish_screen.dart';
+import 'package:todo_app/features/views/category_views/category_screen.dart';
+import 'package:todo_app/features/views/home_views/screens/home_screen.dart';
+import 'package:todo_app/features/views/profile_views/screens/profile_screen.dart';
+import 'package:todo_app/features/views/search_views/search_screen.dart';
+import 'package:todo_app/features/views/wish_views/wish_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

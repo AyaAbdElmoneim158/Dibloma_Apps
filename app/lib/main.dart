@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_app/core/theme/app_theme.dart';
-import 'package:todo_app/core/utils/app_strings.dart';
-import 'package:todo_app/features/auth/provider/auth_provider.dart';
-import '/core/language_constants.dart ';
+import '/core/utils/language_constants.dart';
+import '/features/providers/auth_provider.dart';
+import '/features/providers/theme_provider.dart';
+import '/core/theme/app_theme.dart';
+import '/core/utils/app_strings.dart';
+import '/features/views/profile_views/screens/profile_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import '/core/router/router.dart';
-import '/core/router/routes.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(const StoreApp());
 }
@@ -47,20 +45,37 @@ class _StoreAppState extends State<StoreApp> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => AuthProvide()),
       ],
-      child: MaterialApp(
-        title: AppStrings.appName,
-        debugShowCheckedModeBanner: false,
-        theme: MyThemes.lightTheme,
-        themeMode: ThemeMode.light,
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
-        locale: _locale,
-        onGenerateRoute: onGenerateRoute,
-        initialRoute: Routes.initialRoute,
-        // home: const LanguageScreen(),
-      ),
+      child: MyApp(locale: _locale),
+    );
+  }
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({
+    super.key,
+    required Locale? locale,
+  }) : _locale = locale;
+
+  final Locale? _locale;
+
+  @override
+  Widget build(BuildContext context) {
+    var themeProvider = Provider.of<ThemeProvider>(context);
+    return MaterialApp(
+      title: AppStrings.appName,
+      debugShowCheckedModeBanner: false,
+      theme: MyThemes.lightTheme,
+      darkTheme: MyThemes.darkTheme,
+      themeMode: themeProvider.darkTheme ? ThemeMode.light : ThemeMode.dark,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: _locale,
+      // onGenerateRoute: onGenerateRoute,
+      // initialRoute: Routes.initialRoute,
+      home: const ProfileScreen(),
     );
   }
 }
