@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/features/model/profile_model.dart';
+import 'package:todo_app/src/model/profile_model_.dart';
 import '/core/utils/app_colors.dart';
 import '/core/utils/styles.dart';
 

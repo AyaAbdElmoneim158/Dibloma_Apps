@@ -1,7 +1,8 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
-import '/features/model/product_model.dart';
-import '/core/router/routes.dart';
+import 'package:todo_app/core/router/routes.dart';
+import 'package:todo_app/core/utils/asset_manager.dart';
+import '../../src/model/product_model.dart';
 import '/core/shareable_components/common_card.dart';
 import '/core/utils/app_colors.dart';
 import '/core/utils/consts.dart';
@@ -20,7 +21,7 @@ class CommonProductHCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.pushNamed(context, Routes.detailsProductRoute,
-          arguments: product.productId),
+          arguments: product),
       child: CommonCard(
         padding: 0,
         child: Row(
@@ -33,7 +34,9 @@ class CommonProductHCard extends StatelessWidget {
                   bottomLeft: Radius.circular(AppConst.globalRadius),
                 ),
                 child: FancyShimmerImage(
-                  imageUrl: product.productImage,
+                  imageUrl: (product.images == null)
+                      ? ImageAssets.product1Image
+                      : product.images![0],
                   width: 120,
                   height: 120,
                   boxFit: BoxFit.cover,
@@ -52,10 +55,10 @@ class CommonProductHCard extends StatelessWidget {
                     children: [
                       Helper.showProductDescription(
                         context: context,
-                        productDescription: product.productName,
+                        productDescription: product.description ?? 'Not Found',
                       ),
                       Helper.showProductPrice(
-                        productPrice: product.productPrice,
+                        productPrice: (product.price ?? 0).toString(),
                         context: context,
                       ),
                     ],
@@ -66,7 +69,7 @@ class CommonProductHCard extends StatelessWidget {
             Expanded(
               flex: 2,
               child: SizedBox(
-                height: 120,
+                height: 130,
                 child: Padding(
                   padding: const EdgeInsets.all(AppConst.globalPadding),
                   child: Column(

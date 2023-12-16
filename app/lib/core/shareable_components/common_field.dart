@@ -19,6 +19,8 @@ class CommonField extends StatelessWidget {
     this.vertical = 4,
     this.onSaved,
     this.autovalidateMode,
+    this.onChanged,
+    this.onTap,
   });
 
   final String? hintText;
@@ -33,6 +35,8 @@ class CommonField extends StatelessWidget {
   final double vertical;
   final void Function(String?)? onSaved;
   final AutovalidateMode? autovalidateMode;
+  final void Function(String)? onChanged;
+final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -61,10 +65,12 @@ class CommonField extends StatelessWidget {
           child: TextFormField(
             autovalidateMode: autovalidateMode,
             onSaved: onSaved,
+            onChanged: onChanged,
             style: TextStyles.getFieldTextStyle(),
             textAlignVertical: TextAlignVertical.center,
             controller: controller,
             validator: validator,
+            onTap: onTap,
             //  (val) {
             //   if (val?.isEmpty ?? true) {
             //     return 'Field is empty';
@@ -76,7 +82,8 @@ class CommonField extends StatelessWidget {
             obscureText: obscureText,
             obscuringCharacter: "*",
             cursorWidth: 1.3,
-            decoration: Styles.getFieldDecoration(hintText!, prefixIcon),
+            decoration: Styles.getFieldDecoration(
+                context: context, hintText: hintText!, prefixIcon: prefixIcon),
             textAlign: textAlign,
           ),
         ),

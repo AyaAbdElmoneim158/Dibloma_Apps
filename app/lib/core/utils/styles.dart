@@ -7,6 +7,33 @@ class Styles {
   final BuildContext context;
   Styles(this.context);
 
+  static InputDecoration? getFieldDecoration({
+    String hintText = '',
+    Widget? prefixIcon,
+    required BuildContext context,
+  }) =>
+      InputDecoration(
+        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        border: InputBorder.none,
+        hintText: hintText,
+        hintStyle: TextStyles.getBodyLargeTextStyle(),
+        prefixIcon: prefixIcon,
+      );
+
+  static List<BoxShadow>? getBoxShadowStyle() => [
+        BoxShadow(
+          color: Colors.black.withOpacity(.1),
+          blurRadius: 18,
+          spreadRadius: -3,
+          offset: const Offset(0, 9),
+        )
+      ];
+
+  static Decoration? grayBoxDecorationStyle() => BoxDecoration(
+        color: AppColors.grayFontColor.withOpacity(0.3),
+        borderRadius: BorderRadius.circular(AppConst.globalRadius),
+      );
+
   static TextStyle getTitleAppStyle = const TextStyle(
     fontFamily: AppStrings.fontFamily2,
     fontSize: 24,
@@ -18,6 +45,14 @@ class Styles {
         fontSize: 32,
         fontWeight: FontWeight.bold,
         fontFamily: AppStrings.fontFamily2,
+      );
+
+  static SliverGridDelegate gridDelegateStyle() =>
+      const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 16 / 9,
+        mainAxisSpacing: 12,
+        crossAxisSpacing: 12,
       );
 //! ----------------------------------------------------------------------------
 
@@ -70,38 +105,6 @@ class Styles {
               color: const Color(0xffBAB0CE).withOpacity(0.2))
         ],
       );
-
-  static List<BoxShadow>? getBoxShadowStyle() => [
-        BoxShadow(
-          color: Colors.black.withOpacity(.1),
-          blurRadius: 18,
-          spreadRadius: -3,
-          offset: const Offset(0, 9),
-        )
-      ];
-  static SliverGridDelegate gridDelegateStyle() =>
-      const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 16 / 9,
-        mainAxisSpacing: 12,
-        crossAxisSpacing: 12,
-      );
-  static InputDecoration? getFieldDecoration([
-    String hintText = '',
-    Widget? prefixIcon,
-  ]) =>
-      InputDecoration(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        border: InputBorder.none,
-        hintText: hintText,
-        hintStyle: TextStyles.getFieldTextStyle(),
-        prefixIcon: prefixIcon,
-      );
-
-  static Decoration? grayBoxDecorationStyle() => BoxDecoration(
-        color: AppColors.grayFontColor.withOpacity(0.3),
-        borderRadius: BorderRadius.circular(AppConst.globalRadius),
-      );
 }
 
 class TextStyles {
@@ -120,8 +123,8 @@ class TextStyles {
 
   static TextStyle getSplashTextStyle() => const TextStyle(
         //!Ecommerce UI Theme
-        fontSize: 32,
-        fontWeight: FontWeight.w700,
+        fontSize: 26,
+        fontWeight: FontWeight.w500,
         color: AppColors.primaryColor,
         fontFamily: AppStrings.fontFamily2,
       );

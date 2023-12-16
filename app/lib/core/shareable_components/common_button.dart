@@ -30,7 +30,7 @@ class CommonButton extends StatelessWidget {
       child: Padding(
         padding: padding ?? const EdgeInsets.only(),
         child: SizedBox(
-          height: 64,
+          height: 57,
           child: Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(radius),

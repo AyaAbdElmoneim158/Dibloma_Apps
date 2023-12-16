@@ -15,6 +15,7 @@ class Helper {
         title: Text(
           title,
         ),
+        // leading: const SizedBox(),
       );
 
   static Widget buildBottomTextAppBar({
@@ -30,7 +31,6 @@ class Helper {
         header,
         style: TextStyles.getHeader1TextStyle(fontSize),
       );
-
   static Widget showHeaderList({
     required String header,
     String leftText = AppStrings.seeMore,
@@ -65,31 +65,18 @@ class Helper {
           ],
         ),
       );
-
   static Text showHeaderDescription({
     required String headerDescription,
   }) =>
-      Text(
-        headerDescription,
-        style: TextStyles.getHeaderLabelSmallTextStyle(),
-        // u //style
-      );
+      Text(headerDescription, style: TextStyles.getHeaderLabelSmallTextStyle());
   static Text showUserName({
     required String userName,
   }) =>
-      Text(
-        userName,
-        style: TextStyles.getUserNameTextStyle(),
-        // u //style
-      );
+      Text(userName, style: TextStyles.getUserNameTextStyle());
   static Text showCheckoutCardTextName({
     required String text,
   }) =>
-      Text(
-        text,
-        style: TextStyles.getCheckoutCardTextStyle(),
-      );
-
+      Text(text, style: TextStyles.getCheckoutCardTextStyle());
   static Text showProductDescription(
           {required String productDescription,
           required BuildContext context,
@@ -104,7 +91,6 @@ class Helper {
             ? TextStyles.getProductDecVTextStyle()
             : TextStyles.getProductDecHTextStyle(),
       );
-
   static Text showProductPrice({
     required String productPrice,
     required BuildContext context,
@@ -145,6 +131,7 @@ class Helper {
     );
   }
 
+//*******************
   static Container buildBottomNavigationBar(
           {required List<BottomNavigationBarItem> items,
           int currentIndex = 0,

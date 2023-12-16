@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/features/model/category_model.dart';
+import '../../src/model/category_model.dart';
 import '/core/utils/consts.dart';
 import '/core/utils/styles.dart';
 
@@ -15,8 +15,8 @@ class CommonCategoryCard extends StatelessWidget {
           aspectRatio: AppConst.aspectRatio,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(AppConst.globalRadius),
-            child: Image.asset(
-              category.image,
+            child: Image.network(
+              category.image!,
               fit: BoxFit.cover,
             ),
           ),
@@ -25,11 +25,13 @@ class CommonCategoryCard extends StatelessWidget {
           aspectRatio: AppConst.aspectRatio,
           child: Container(decoration: Styles.grayBoxDecorationStyle()),
         ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            category.name,
-            style: TextStyles.getCategoryNameStyle(),
+        Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              category.name!,
+              style: TextStyles.getCategoryNameStyle(),
+            ),
           ),
         )
       ],
