@@ -1,18 +1,65 @@
 import 'package:dio/dio.dart';
 
-// ToDo: Class_DioHelper........................................................
 class DioHelper {
-  static Dio? dio;
+  late Dio _dio;
 
-  ///~> Dio_init----------------------------------------------------------------
-  static Dio? init() => dio = Dio(BaseOptions(
-      // ?stock=Communications-2
-      baseUrl: 'https://20mccck65d.execute-api.ap-northeast-1.amazonaws.com/',
-      receiveDataWhenStatusError: true));
+  DioHelper() {
+    _dio = Dio();
+  }
 
-  ///~> Dio_getData-------------------------------------------------------------
-  static Future<Response> getData(
-          {required String path,
-          Map<String, dynamic>? queryParameters = const {}}) async =>
-      await dio!.get(path, queryParameters: queryParameters);
+  Future<Response> get(String url,
+      {Map<String, dynamic>? queryParameters,
+      Map<String, dynamic>? headers}) async {
+    try {
+      final response = await _dio.get(url,
+          queryParameters: queryParameters, options: Options(headers: headers));
+      return response;
+    } catch (error) {
+      rethrow;
+    }
+  }
+
+  Future<Response> post(String url,
+      {Map<String, dynamic>? data, Map<String, dynamic>? headers}) async {
+    try {
+      final response =
+          await _dio.post(url, data: data, options: Options(headers: headers));
+      return response;
+    } catch (error) {
+      rethrow;
+    }
+  }
+
+  Future<Response> put(String url,
+      {Map<String, dynamic>? data, Map<String, dynamic>? headers}) async {
+    try {
+      final response =
+          await _dio.put(url, data: data, options: Options(headers: headers));
+      return response;
+    } catch (error) {
+      rethrow;
+    }
+  }
+
+  Future<Response> patch(String url,
+      {Map<String, dynamic>? data, Map<String, dynamic>? headers}) async {
+    try {
+      final response =
+          await _dio.patch(url, data: data, options: Options(headers: headers));
+      return response;
+    } catch (error) {
+      rethrow;
+    }
+  }
+
+  Future<Response> delete(String url,
+      {Map<String, dynamic>? data, Map<String, dynamic>? headers}) async {
+    try {
+      final response = await _dio.delete(url,
+          data: data, options: Options(headers: headers));
+      return response;
+    } catch (error) {
+      rethrow;
+    }
+  }
 }

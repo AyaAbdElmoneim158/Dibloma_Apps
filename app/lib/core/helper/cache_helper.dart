@@ -1,35 +1,33 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-//ToDo: Class_CacheHelper.......................................................
 class CacheHelper {
-  static SharedPreferences? shared;
+  static late SharedPreferences _preferences;
 
-  ///~> Cache_init--------------------------------------------------------------
-  static Future<SharedPreferences> init() async =>
-      shared = await SharedPreferences.getInstance();
-
-  ///~> Dio_setData-------------------------------------------------------------
-  static Future<bool> setData(String key, dynamic value) async {
-    switch (value.runtimeType) {
-      case int:
-        return await shared!.setInt(key, value);
-      case bool:
-        return await shared!.setBool(key, value);
-      case double:
-        return await shared!.setDouble(key, value);
-      case String:
-        return await shared!.setString(key, value);
-      case const (List<String>):
-        return shared!.setStringList(key, value);
-      default:
-        return await shared!.setString(key, value);
-    }
+  static Future<void> init() async {
+    _preferences = await SharedPreferences.getInstance();
   }
 
-  ///~> Dio_getData-------------------------------------------------------------
-  static dynamic getData({required String key}) => shared!.get(key);
+  static Future<bool> saveData({
+    required String key,
+    required dynamic value,
+  }) async {
+    if (value is String) {
+      return await _preferences.setString(key, value);
+    } else if (value is int) {
+      return await _preferences.setInt(key, value);
+    } else if (value is double) {
+      return await _preferences.setDouble(key, value);
+    } else if (value is bool) {
+      return await _preferences.setBool(key, value);
+    }
+    return false;
+  }
 
-  ///~> Dio_removeData----------------------------------------------------------
-  static Future<bool> removeData({required String key}) async =>
-      await shared!.remove(key);
+  static dynamic loadData({required String key}) {
+    return _preferences.get(key);
+  }
+
+  static Future<bool> removeData({required String key}) async {
+    return await _preferences.remove(key);
+  }
 }
