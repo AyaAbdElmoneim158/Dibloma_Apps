@@ -9,16 +9,16 @@ environment:
 
 dependencies:
   awesome_snackbar_content: ^0.1.3
-  cloud_firestore: ^4.13.2
+  bloc: ^8.1.2
   country_flags: ^2.2.0
   cupertino_icons: ^1.0.2
-  dio: ^5.3.4
+  dartz: ^0.10.1
+  dio: ^5.4.0
+  equatable: ^2.0.5
   fancy_shimmer_image: ^2.0.3
-  firebase_auth: ^4.14.1
-  firebase_core: ^2.23.0
-  firebase_storage: ^11.5.2
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.3
   flutter_facebook_auth: ^6.0.3
   flutter_iconly: ^1.0.2
   flutter_localization: ^0.1.14
@@ -27,6 +27,7 @@ dependencies:
   google_fonts: ^6.1.0
   google_sign_in: ^6.1.6
   hive: ^2.2.3
+  internet_connection_checker: ^1.0.0+1
   intl: ^0.18.1
   lottie: ^2.7.0
   page_transition: ^2.1.0
@@ -46,14 +47,14 @@ flutter:
     - assets/images/
     - assets/images/categories/
     - assets/images/products/
-    - app/assets/user_images/
-    - app/assets/user_images/bag/
-    - app/assets/user_images/banners/
-    - app/assets/user_images/categories/
-    - app/assets/user_images/profile/
-    - app/assets/admin_images/
-    - app/assets/admin_images/categories/
-    - app/assets/admin_images/dashboard/
+    - assets/user_images/
+    - assets/user_images/bag/
+    - assets/user_images/banners/
+    - assets/user_images/categories/
+    - assets/user_images/profile/
+    - assets/admin_images/
+    - assets/admin_images/categories/
+    - assets/admin_images/dashboard/
 
   fonts:
     - family: Laila

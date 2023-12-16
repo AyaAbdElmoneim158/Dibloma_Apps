@@ -1,52 +1,75 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_app/core/helper/cache_helper.dart';
+import 'package:todo_app/core/router/router.dart';
+import 'package:todo_app/core/theme/app_theme.dart';
+import 'package:todo_app/core/utils/app_strings.dart';
+import 'package:todo_app/src/controller/app_cubit/app_cubit.dart';
+import 'package:todo_app/src/controller/auth_cubit/auth_cubit.dart';
+import 'package:todo_app/src/controller/category_cubit/category_cubit.dart';
+import 'package:todo_app/src/controller/product_cubit/product_cubit.dart';
+// import 'package:todo_app/src/test_api/test_api_screen.dart';
+import '/core/router/routes.dart';
 
-// class MyApp extends StatefulWidget {
-//   const MyApp({Key? key}) : super(key: key);
+class StoreApp extends StatefulWidget {
+  const StoreApp({super.key});
 
-//   @override
-//   State<MyApp> createState() => _MyAppState();
-// }
+  @override
+  State<StoreApp> createState() => _StoreAppState();
+}
 
-// class _MyAppState extends State<MyApp> {
-//   final darkColorForLightTheme = 0xff242f60;
+class _StoreAppState extends State<StoreApp> {
+  String? userToken;
+  String? userRole;
 
-//   final lightColorForDarkTheme = 0xff03DAC5;
+  @override
+  void initState() {
+    super.initState();
+    getSharedData();
+  }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     var isDark = true;
-//     var primaryColorHex = (isDark ? lightColorForDarkTheme : darkColorForLightTheme);
-//     var primaryColor = Color(primaryColorHex);
-//     return MaterialApp(
-//       title: 'Welcome to Flutter',
-//       theme: ThemeData.light().copyWith(
-//         primaryColor: primaryColor,
-//         brightness: Brightness.light,
-//         backgroundColor: const Color(0xFFE5E5E5),
-//         dividerColor: Colors.white54,
-//         colorScheme: ColorScheme.light(primary: primaryColor),
-//       ),
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: const Text('Welcome to Flutter'),
-//         ),
-//         body: Center(
-//           child: Column(
-//             mainAxisSize: MainAxisSize.min,
-//             children: [
-//               const Text('Hello World'),
-//               MaterialButton(
-//                   color: primaryColor,
-//                   onPressed: () {
-//                     setState(() {
-//                       isDark = !isDark;
-//                     });
-//                   },
-//                   child: const Text('Change app primary color')),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
+  void getSharedData() async {
+    userToken = CacheHelper.loadData(key: AuthCubit().userToken!);
+    userRole = CacheHelper.loadData(key: AuthCubit().userRole);
+    debugPrint("userToken, $userToken , userRole, $userRole ");
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => AppCubit()),
+        BlocProvider(create: (context) => AuthCubit()),
+        BlocProvider(create: (context) => CategoryCubit()..getCategories()),
+        BlocProvider(
+          create: (context) => ProductCubit()
+            ..getAllProduct()
+            ..filterProductByTitle(title: "Generic"),
+        ),
+      ],
+      child: MaterialApp(
+        title: AppStrings.appName,
+        debugShowCheckedModeBanner: false,
+        theme: MyThemes.lightTheme,
+        darkTheme: MyThemes.darkTheme,
+        themeMode: ThemeMode.light,
+        onGenerateRoute: onGenerateRoute,
+        initialRoute: _initialRoute(),
+        // Routes.mainRoute,
+        // home: const TestApiScreen(),
+      ),
+    );
+  }
+
+  String? _initialRoute() {
+    if (userToken == null) {
+      return Routes.initialRoute;
+    } else {
+      if (userRole == 'customer') {
+        return Routes.mainRoute;
+      } else {
+        return Routes.adminRoute;
+      }
+    }
+  }
+}

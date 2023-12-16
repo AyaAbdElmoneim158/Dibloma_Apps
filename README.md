@@ -48,3 +48,5 @@ The Shopping application is designed to offer users some features, such as:
 |> SplashScreen -> loginScreen -> registerScreen -> validatedScreen !!......????
 |> navbar -> HomeScreen -> CategoryScreen -> SearchScreen -> WishScreen -> ProfileScreen
 |> CardScreen -> checkoutScreen ->
+
+//Responsive
