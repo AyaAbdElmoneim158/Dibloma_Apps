@@ -210,7 +210,7 @@ class TextStyles {
   static TextStyle getProductPriceVTextStyle() => const TextStyle(
         //200.75
         color: Color(0xFF876AE0),
-        fontSize: 18,
+        fontSize: 24,
         fontWeight: FontWeight.w600,
       );
   static TextStyle getProductDecHTextStyle() => const TextStyle(
@@ -222,7 +222,7 @@ class TextStyles {
   static TextStyle getProductPriceHTextStyle() => const TextStyle(
         //200.75
         color: Color(0xFF9578ef),
-        fontSize: 16,
+        fontSize: 24,
         fontWeight: FontWeight.w600,
       );
   static TextStyle getProductPrice2TextStyle() => const TextStyle(

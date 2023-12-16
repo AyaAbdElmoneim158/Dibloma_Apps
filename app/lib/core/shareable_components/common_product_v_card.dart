@@ -18,7 +18,7 @@ class CommonProductVCard extends StatelessWidget {
       onTap: () => Navigator.pushNamed(context, Routes.detailsProductRoute,
           arguments: product),
       child: SizedBox(
-        width: 170,
+        // width: 10,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -63,7 +63,7 @@ class CommonProductVCard extends StatelessWidget {
             ),
             Helper.showProductPrice(
               type: "V",
-              productPrice: (product.price ?? 0).toString(),
+              productPrice: '${(product.price ?? 0)}\$',
               context: context,
             )
           ],

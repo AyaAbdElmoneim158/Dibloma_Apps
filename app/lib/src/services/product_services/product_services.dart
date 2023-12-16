@@ -64,8 +64,9 @@ class ProductService implements IProductService {
         ),
         queryParameters: {"title": title},
       );
-      final loadedData =
-          response.data.map((json) => ProductModel.fromJson(json)).toList();
+      List<dynamic> data = response.data;
+      List<ProductModel> loadedData =
+          data.map((json) => ProductModel.fromJson(json)).toList();
       return right(loadedData);
     } on DioException catch (err) {
       return left(ServerFailure.fromDioError(err));
@@ -78,8 +79,9 @@ class ProductService implements IProductService {
   Future<Either<IFailure, List<ProductModel>>> getAllProducts() async {
     try {
       final response = await dioHelper.get(EndPoints.getAllProductEndPoint());
-      final loadedData =
-          response.data.map((json) => ProductModel.fromJson(json)).toList();
+      List<dynamic> data = response.data;
+      List<ProductModel> loadedData =
+          data.map((json) => ProductModel.fromJson(json)).toList();
       return right(loadedData);
     } on DioException catch (err) {
       return left(ServerFailure.fromDioError(err));
@@ -104,7 +106,7 @@ class ProductService implements IProductService {
           if (images == null) 'images': images,
         },
       );
-      final loadedData = CategoryModel.fromJson(response.data) ;
+      final loadedData = CategoryModel.fromJson(response.data);
       return right(loadedData);
     } on DioException catch (err) {
       return left(ServerFailure.fromDioError(err));
@@ -114,7 +116,7 @@ class ProductService implements IProductService {
   }
 
   @override
-    Future<Either<IFailure,List<ProductModel>>> filterProductByCategory(
+  Future<Either<IFailure, List<ProductModel>>> filterProductByCategory(
       {required int categoryId, required String title}) async {
     try {
       final response = await dioHelper.get(
@@ -122,9 +124,10 @@ class ProductService implements IProductService {
             title: title, category: categoryId),
         queryParameters: {"title": title},
       );
-      final loadedData = response.data.map((json) => ProductModel.fromJson(json)).toList();
+      List<dynamic> data = response.data;
+      List<ProductModel> loadedData =
+          data.map((json) => ProductModel.fromJson(json)).toList();
       return right(loadedData);
-  
     } on DioException catch (err) {
       return left(ServerFailure.fromDioError(err));
     } catch (err) {
@@ -133,7 +136,7 @@ class ProductService implements IProductService {
   }
 
   @override
-  Future<Either<IFailure,List<ProductModel>>> filterProductByPriceRange(
+  Future<Either<IFailure, List<ProductModel>>> filterProductByPriceRange(
       {required int priceMin, required int priceMax}) async {
     try {
       final response = await dioHelper.get(
@@ -144,9 +147,10 @@ class ProductService implements IProductService {
           'price_max': priceMax,
         },
       );
-      final loadedData = response.data.map((json) => ProductModel.fromJson(json)).toList();
+      List<dynamic> data = response.data;
+      List<ProductModel> loadedData =
+          data.map((json) => ProductModel.fromJson(json)).toList();
       return right(loadedData);
-     
     } on DioException catch (err) {
       return left(ServerFailure.fromDioError(err));
     } catch (err) {
