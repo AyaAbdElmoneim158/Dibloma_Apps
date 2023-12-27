@@ -10,19 +10,21 @@ The Shopping application is designed to offer users some features, such as:
 
 ## \* Steps 🐾
 
-- <b> Add Router
-- <b> Add Utils
-- <b> Add Theme
-- <b> Add Shareable Components
-- <b> Add Auth Screens `login` and `register` and `verification`
-- <b> Add main Screen with Navbar
-- <b> Add Home Screen
-- <b> Edit issues
-- <b> Add Categories Screen
-- <b> Add Search Screen
-- <b> Add Wish Screen
-- <b> Add Profile Screen
-- <b> Add Details Screen
+- <b> Add app core :<br>
+    - <b> Add Router
+    - <b> Add Utils
+    - <b> Add Theme
+    - <b> Add Shareable Components
+- <b> Add Ui :<br>
+     - Login Screen | Register Screen | Verification Screen <br>
+     - Main Screen | Home Screen | Categories Screen | Search Screen <br>
+     - Wish Screen | Profile Screen | Product Details Screen
+- <b> Add Services :<br>
+    - Auth Services👉 login + register <br>
+    - Category Services👉 getCategories + getProductsByCategory + createCategory + updateCategory + deleteCategory  <br>
+    - Product Services👉 getAllProducts + createProduct + updateProduct + deleteProduct + filterProductByTitle + filterProductByCategory + filterProductByPriceRange <br>
+- <b> Use Cubit :<br>
+     
 
     <hr>
   <h2 align="center"> <em>Screens</em></h2>
